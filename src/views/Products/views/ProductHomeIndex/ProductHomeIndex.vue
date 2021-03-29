@@ -63,7 +63,7 @@ export default Vue.extend({
       this.isFetching = true;
 
       productApi
-        .fetchAllProducts()
+        .fetchAvailableProducts()
         .then((products: any) => {
           this.products = products;
         })

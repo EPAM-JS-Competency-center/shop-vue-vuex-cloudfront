@@ -1,15 +1,70 @@
 <template>
-<p>
-  ProductImport
-</p>
+  <div class="grey lighten-5">
+    <v-container>
+      <h5 class="text-h5 mb-3">Import Product CSV</h5>
+
+      <v-csv-file-uploader
+        :url="uploaderS3Url"
+      ></v-csv-file-uploader>
+
+      <v-csv-product-table 
+        :products="products"
+        :isLoading="isFetching"
+        @delete-product="deleteProduct"
+        ></v-csv-product-table>
+    </v-container>
+  </div>
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 
-export default {
-  name: "ProductImport",
-};
+import { productApi } from '@/api/product-api';
+
+import VCsvProductTable from "./ui/CSVProductTable.vue";
+import VCsvFileUploader from "./ui/CSVFileUploader.vue";
+
+import { API_PATHS } from '@/constants/api-paths';
+
+
+// TODO: avoid any
+export default Vue.extend({
+  name: "ProductImpzort",
+  components: { VCsvProductTable, VCsvFileUploader },
+  data () {
+    return {
+      products: [] as any,
+      isFetching: false,
+
+      uploaderS3Url: `${API_PATHS.import}/import`
+    };
+  },
+  created() {
+    this.fetchProducts(); 
+  },
+  methods: {
+    fetchProducts () {
+      this.isFetching = true;
+
+      productApi.fetchProducts()
+        .then((items: any) => {
+          this.products = items;
+        })
+        .finally(() => {
+          this.isFetching = false;
+        })
+    },
+    deleteProduct (id: string): void {
+      this.isFetching = true;
+
+      productApi.deleteProductById(id)
+       .then ((items: any) => {
+          this.products = items;
+        })
+       .finally(() => {
+          this.isFetching = false;
+        });
+    }
+  }
+});
 </script>
-
-<style scoped>
-</style>

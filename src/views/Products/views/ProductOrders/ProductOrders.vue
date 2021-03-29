@@ -5,7 +5,7 @@
 
       <v-orders-table 
         :orders="orders"
-        :isLoading="isLoading"
+        :isLoading="isFetching"
         @delete-order="deleteOrder"
         ></v-orders-table>
     </v-container>

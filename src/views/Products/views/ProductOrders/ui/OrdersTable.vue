@@ -3,16 +3,12 @@
     :headers="headers"
     :items="mappedOrders"
     :items-per-page="10"
-    :loading="{ isLoading }"
-    loading-text="Loading... Please wait"
+    :loading="isFetching"
     item-key="id"
     class="elevation-1"
   >
     <template v-slot:loading>
-      <v-progress-linear
-        indeterminate
-        color="indigo"
-      ></v-progress-linear>
+      <v-progress-linear indeterminate color="indigo"></v-progress-linear>
 
       <p class="pa-2 v-data-table__empty-wrapper">Loading... Please wait</p>
     </template>
@@ -32,11 +28,16 @@
         <td>{{ item.status }}</td>
 
         <td>
-          <v-btn color="primary" small :to="`/admin/order/${item.id}`">
+          <v-btn
+            class="mr-1"
+            color="primary"
+            small
+            :to="`/admin/order/${item.id}`"
+          >
             Manage
           </v-btn>
 
-          <v-btn color="error" @click="deleteOrder(item.id)" small>
+          <v-btn class="ml-1" color="error" @click="deleteOrder(item.id)" small>
             Delete
           </v-btn>
         </td>
@@ -96,7 +97,7 @@ export default Vue.extend({
   name: "OrdersTable",
   props: {
     orders: Array,
-    isLoading: Boolean,
+    isFetching: Boolean,
   },
   data() {
     return {
