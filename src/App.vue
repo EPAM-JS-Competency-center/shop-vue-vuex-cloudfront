@@ -1,8 +1,24 @@
 <template>
   <div id="app">
-    <router-view />
+    <v-app-router></v-app-router>
+
+    <v-app-version :value="appVersion"></v-app-version>
   </div>
+
 </template>
+
+<script lang="ts">
+import VAppVersion from "@/libs/version/AppVersion.vue";
+
+import VAppRouter from "./AppRouter.vue";
+  console.log(process.env.VUE_APP_VERSION)
+export default {
+  components: { VAppVersion, VAppRouter },
+  data: () => ({
+    appVersion: process.env.VUE_APP_VERSION
+  })
+};
+</script>
 
 <style>
 body {
