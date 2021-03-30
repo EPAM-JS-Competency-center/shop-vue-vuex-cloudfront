@@ -1,6 +1,6 @@
 
 <template>
-  <v-form class="my-4" @submit="uploadFile">
+  <v-form class="my-4" @submit.prevent="uploadFile">
     <v-file-input
       v-model="file"
       placeholder="Upload your files"
@@ -53,9 +53,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    async uploadFile(e: Event) {
-      e.preventDefault();
-
+    async uploadFile() {
       const file = this.file as File;
       const destUrl = await fetchPresignedS3Url(this.url, file.name);
 
