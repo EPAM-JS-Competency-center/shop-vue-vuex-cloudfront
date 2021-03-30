@@ -27,6 +27,7 @@
 
             <v-card-actions>
               <v-add-product-to-cart
+                isEditable
                 :maxCount="product.count"
               ></v-add-product-to-cart>
             </v-card-actions>

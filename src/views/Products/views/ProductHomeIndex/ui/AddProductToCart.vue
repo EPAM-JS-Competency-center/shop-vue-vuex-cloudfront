@@ -1,6 +1,6 @@
 <template>
   <div v-if="productCount < 1">
-    <v-btn color="pink" icon large @click="incrementProduct()">
+    <v-btn color="pink" icon large @click="showCounters()">
       <v-icon>shopping_cart</v-icon>
     </v-btn>
   </div>
@@ -31,6 +31,7 @@ export default Vue.extend({
   name: "AddProductToCart",
   props: {
     maxCount: Number,
+    isEditable: Boolean,
   },
   data () {
     return {
@@ -43,6 +44,13 @@ export default Vue.extend({
     },
   },
   methods: {
+    showCounters() {
+      if (!this.isEditable) {
+        return;
+      }
+
+      this.incrementProduct();
+    },
     incrementProduct() {
       this.productCount += 1;
     },

@@ -1,8 +1,9 @@
 <template>
   <v-list subheader>
     <v-list-item v-for="cart in cartItems" :key="cart.product.id" class="px-0">
-      <v-list-item-avatar size="inherit" v-if="isEditable">
+      <v-list-item-avatar size="inherit">
         <v-add-product-to-cart
+          :isEditable="isEditable"
           :maxCount="cart.product.count"
         ></v-add-product-to-cart>
       </v-list-item-avatar>
@@ -28,17 +29,19 @@
 
     <v-list-item class="px-0">
       <v-list-item-content>
-        <v-list-item-title>Shipping</v-list-item-title>
+        <v-list-item-title>Shipping cost:</v-list-item-title>
       </v-list-item-content>
 
       <v-list-item-action>
-        <v-list-item-title class="body2">Free</v-list-item-title>
+        <v-list-item-title class="body2 font-weight-bold"
+          >Free</v-list-item-title
+        >
       </v-list-item-action>
     </v-list-item>
 
     <v-list-item class="px-0">
       <v-list-item-content>
-        <v-list-item-title>Total</v-list-item-title>
+        <v-list-item-title class="text-h5">Total</v-list-item-title>
       </v-list-item-content>
 
       <v-list-item-action>

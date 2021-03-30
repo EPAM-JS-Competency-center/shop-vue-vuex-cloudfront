@@ -17,7 +17,13 @@
 
           <v-divider></v-divider>
 
-          <v-stepper-step step="3"> Review your order </v-stepper-step>
+          <v-stepper-step :complete="stepIndex > 3" step="3">
+            Review your order
+          </v-stepper-step>
+
+          <v-divider></v-divider>
+
+          <v-stepper-step step="4"> Complete order </v-stepper-step>
         </v-stepper-header>
 
         <v-stepper-items>
@@ -31,6 +37,7 @@
           <v-stepper-content step="2">
             <v-shipping-address-step
               @complete="handleShippingAddressStep2"
+              @back="goBackStep"
             ></v-shipping-address-step>
           </v-stepper-content>
 
@@ -39,7 +46,19 @@
               :cartItems="cartItems"
               :address="address"
               @complete="handleOrderStep3"
+              @back="goBackStep"
             ></v-review-your-order-step>
+          </v-stepper-content>
+
+          <v-stepper-content step="4">
+            <div class="d-flex justify-center flex-column align-center">
+              <p class="text-subtitle1">
+                Your order is placed. Our manager will call you soon to clarify
+                the details.
+              </p>
+
+              <p class="text-h5">Thank you for your order.</p>
+            </div>
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
@@ -69,9 +88,19 @@ export default Vue.extend({
     VReviewYourOrderStep,
   },
   data: () => ({
-    address: {},
+    address: {
+      firstName: "FirstName",
+      lastName: "LastName",
+      address: "Moon",
+      comment: "the best place",
+    },
     stepIndex: 1,
-    cartItems: [],
+    cartItems: [
+      {
+        product: { id: "11", title: "111", description: "product test", price: 777 },
+        count: 777,
+      },
+    ],
   }),
   methods: {
     goBackStep() {
@@ -81,7 +110,6 @@ export default Vue.extend({
       this.stepIndex += 1;
     },
     handleReviewCartStep1() {
-      console.log("i`m fine");
       this.goNextStep();
     },
     handleShippingAddressStep2(values: ShippingAddressFormValues) {
