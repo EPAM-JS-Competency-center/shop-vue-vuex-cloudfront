@@ -6,24 +6,26 @@
 
         <v-stepper-header>
           <v-stepper-step :complete="stepIndex > 1" step="1">
-            Review your cart
+               {{ $t('cart.review')}}
           </v-stepper-step>
 
           <v-divider></v-divider>
 
           <v-stepper-step :complete="stepIndex > 2" step="2">
-            Shipping address
+               {{ $t('cart.shippingAddress')}}
           </v-stepper-step>
 
           <v-divider></v-divider>
 
           <v-stepper-step :complete="stepIndex > 3" step="3">
-            Review your order
+             {{ $t('orders.review')}}
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step step="4"> Complete order </v-stepper-step>
+          <v-stepper-step step="4"> 
+               {{ $t('orders.complete')}}
+             </v-stepper-step>
         </v-stepper-header>
 
         <v-stepper-items>
@@ -53,11 +55,12 @@
           <v-stepper-content step="4">
             <div class="d-flex justify-center flex-column align-center">
               <p class="text-subtitle1">
-                Your order is placed. Our manager will call you soon to clarify
-                the details.
+                {{ $t('orders.inProgress')}}
               </p>
 
-              <p class="text-h5">Thank you for your order.</p>
+              <p class="text-h5">
+                {{ $t('orders.thankYou')}}
+              </p>
             </div>
           </v-stepper-content>
         </v-stepper-items>

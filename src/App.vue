@@ -11,11 +11,13 @@
 import VAppVersion from "@/libs/version/AppVersion.vue";
 
 import VAppRouter from "./AppRouter.vue";
-  console.log(process.env.VUE_APP_VERSION)
+
+const APP_VERSION = process.env.VUE_APP_VERSION;
+
 export default {
   components: { VAppVersion, VAppRouter },
   data: () => ({
-    appVersion: process.env.VUE_APP_VERSION
+    appVersion: APP_VERSION
   })
 };
 </script>

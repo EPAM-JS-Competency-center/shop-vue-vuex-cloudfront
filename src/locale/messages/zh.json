@@ -1,0 +1,29 @@
+{
+    "app": {
+        "title": "我的店！",
+        "loading": "请等待。"
+    },
+    "common": {
+        "manage": "编辑",
+        "delete": "删除",
+        "next": "下一个",
+        "back": "返回",
+        "order": "订购"
+    },
+    "orders": {
+        "manage": "订单管理",
+        "apply": "订购",
+        "complete": "完整订单",
+        "review": "查看您的订单",
+        "thankYou": "谢谢你的订单。",
+        "inProgress": "您的订单已经下达。我们的经理会尽快打电话给您，以澄清细节。"
+    },
+    "cart": {
+        "review": "查看您的购物车",
+        "shippingAddress": "送货地址",
+        "summary": "购物车摘要"
+    },
+    "products": {
+        "manage": "产品管理"
+    }
+}

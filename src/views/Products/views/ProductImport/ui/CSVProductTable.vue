@@ -36,7 +36,7 @@
             small
             :to="`/admin/product-form/${item.id}`"
           >
-            Manage
+            {{ $t("common.manage") }}
           </v-btn>
 
           <v-btn
@@ -45,7 +45,7 @@
             @click="deleteProduct(item.id)"
             small
           >
-            Delete
+            {{ $t("common.delete") }}
           </v-btn>
         </td>
       </tr>

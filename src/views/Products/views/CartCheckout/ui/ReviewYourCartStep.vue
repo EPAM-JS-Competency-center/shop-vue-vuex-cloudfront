@@ -1,11 +1,10 @@
 <template>
   <v-container>
-    <p class="text-h6">Cart summary</p>
+    <p class="text-h6">
+      {{ $t("cart.summary") }}
+    </p>
 
-    <v-cart-list
-        isEditable
-        :cartItems="cartItems"
-    ></v-cart-list>
+    <v-cart-list isEditable :cartItems="cartItems"></v-cart-list>
 
     <div class="d-flex justify-end">
       <v-btn
@@ -14,7 +13,7 @@
         color="primary"
         @click="handleStepSubmit"
       >
-        Next
+        {{ $t("common.next") }}
       </v-btn>
     </div>
   </v-container>
@@ -23,7 +22,7 @@
 <script lang="ts">
 import Vue from "vue";
 
-import VCartList from './CartList.vue';
+import VCartList from "./CartList.vue";
 
 export default Vue.extend({
   name: "ReviewYourCartStep",

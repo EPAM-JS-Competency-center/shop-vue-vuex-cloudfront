@@ -1,1 +1,28 @@
-{}
+{
+    "app": {
+        "title": "My store!",
+        "loading": "Loading... Please wait"
+    },
+    "common": {
+        "manage": "Manage",
+        "delete": "Delete",
+        "next": "Next",
+        "back": "Back"
+    },
+    "orders": {
+        "manage": "Manage orders",
+        "apply": "Place order",
+        "complete": "complete the order",
+        "review": "Review your order",
+        "thankYou": "Thank you for your order.",
+        "inProgress": "Your order is placed. Our manager will call you soon to clarify the details."
+    },
+    "cart": {
+        "review": "Review your cart",
+        "shippingAddress": "Shipping address",
+        "summary": "Cart Summary"
+    },
+    "products": {
+        "manage": "Manage products"
+    }
+}

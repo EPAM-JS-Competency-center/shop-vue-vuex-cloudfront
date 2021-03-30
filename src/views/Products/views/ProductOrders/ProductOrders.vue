@@ -1,7 +1,9 @@
 <template>
   <div class="grey lighten-5">
     <v-container>
-      <h5 class="text-h5 mb-3">Manage orders</h5>
+      <h5 class="text-h5 mb-3">
+           {{ $t("orders.manage") }}
+      </h5>
 
       <v-orders-table 
         :orders="orders"

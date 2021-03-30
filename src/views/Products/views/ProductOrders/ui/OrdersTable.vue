@@ -10,7 +10,9 @@
     <template v-slot:loading>
       <v-progress-linear indeterminate color="indigo"></v-progress-linear>
 
-      <p class="pa-2 v-data-table__empty-wrapper">Loading... Please wait</p>
+      <p class="pa-2 v-data-table__empty-wrapper">
+        {{ $t("app.loading") }}
+      </p>
     </template>
 
     <template v-slot:item="{ item }">
@@ -34,11 +36,11 @@
             small
             :to="`/admin/order/${item.id}`"
           >
-            Manage
+            {{ $t("common.manage") }}
           </v-btn>
 
           <v-btn class="ml-1" color="error" @click="deleteOrder(item.id)" small>
-            Delete
+            {{ $t("common.delete") }}
           </v-btn>
         </td>
       </tr>

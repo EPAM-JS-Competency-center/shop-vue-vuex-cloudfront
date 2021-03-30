@@ -6,7 +6,9 @@
       @submit.prevent="handleStepSubmit"
       @reset.prevent="resetForm"
     >
-      <p class="text-h6">Shipping Address</p>
+      <p class="text-h6">
+        {{ $t("cart.shippingAddress") }}
+      </p>
 
       <v-row>
         <v-col cols="12" md="6">
@@ -40,7 +42,9 @@
         <v-col cols="12" class="d-flex justify-end">
           <v-btn class="mr-1" type="reset"> Clear </v-btn>
 
-          <v-btn class="ml-1" type="submit" color="primary"> Next </v-btn>
+          <v-btn class="ml-1" type="submit" color="primary">
+            {{ $t("common.next") }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-form>
@@ -78,11 +82,11 @@ export default Vue.extend({
         return;
       }
 
-      this.$emit('complete', {
-          firstname: this.firstname,
-          lastname: this.lastname,
-          address: this.address,
-          comment: this.comment,
+      this.$emit("complete", {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        address: this.address,
+        comment: this.comment,
       });
     },
     resetForm() {

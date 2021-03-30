@@ -32,14 +32,17 @@
     </v-list>
 
     <div class="d-flex justify-end">
-      <v-btn class="mr-1" type="button" @click="$emit('back')"> Back </v-btn>
+      <v-btn class="mr-1" type="button" @click="$emit('back')">
+        {{ $t("common.back") }}
+      </v-btn>
+      
       <v-btn
         class="ml-1"
         type="button"
         color="primary"
         @click="handleStepSubmit"
       >
-        Place order
+        {{ $t("orders.apply") }}
       </v-btn>
     </div>
   </v-container>

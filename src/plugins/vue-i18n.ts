@@ -12,6 +12,7 @@ export const connecti18n = (Vue: VueConstructor) => {
     messages: {
       [Locale.EN]: messages.en,
       [Locale.RU]: messages.ru,
+      [Locale.ZH]: messages.zh,
     }
   })
 };

@@ -1,52 +1,38 @@
-
 <template>
   <v-app-bar class="px-6" color="indigo" dark app>
     <v-toolbar-title>
-        <router-link class="home-link" to="/">My Store!</router-link>
+      <router-link class="home-link" to="/">
+        {{ $t("app.title") }}
+      </router-link>
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
 
-    <v-menu left bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          class="ma-2 pa-2"
-          icon
-          large
-          v-bind="attrs"
-          v-on="on"
-          aria-haspopup="true"
-        >
-          <v-icon>account_circle</v-icon>
-        </v-btn>
-      </template>
+    <v-account-btn-menu></v-account-btn-menu>
 
-      <v-list>
-        <v-list-item to="/admin/orders">
-          <v-list-item-title> Manage orders </v-list-item-title>
-        </v-list-item>
-
-        <v-list-item to="/admin/products">
-          <v-list-item-title>Manage products</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-
-    <v-btn class="ma-2 pa-2" to="/cart" icon large>
+    <v-btn class="ma-2 pa-2 mr-5" to="/cart" icon large>
       <v-icon>shopping_cart</v-icon>
     </v-btn>
+
+    <v-language-picker-btn-menu></v-language-picker-btn-menu>
   </v-app-bar>
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue';
+
+import VAccountBtnMenu from './AccountButtonMenu.vue';
+import VLanguagePickerBtnMenu from './LanguagePickerButtonMenu.vue';
+
+export default Vue.extend({
   name: "ProductHeader",
-};
+  components: {VAccountBtnMenu, VLanguagePickerBtnMenu},
+});
 </script>
 
 <style scoped>
-  .home-link {
-     color: white;
-    text-decoration: none;
-  }
+.home-link {
+  color: white;
+  text-decoration: none;
+}
 </style>
