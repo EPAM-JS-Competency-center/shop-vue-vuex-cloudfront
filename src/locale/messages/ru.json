@@ -8,7 +8,16 @@
         "delete": "Удалить",
         "next": "Далее",
         "back": "Назад",
-        "order": "Заказать"
+        "order": "Заказать",
+        "total": "Итого",
+        "clear": "Очистить",
+        "close": "Закрыть",
+        "free": "Бесплатно",
+        "thankYouForPurchase": "Спасибо за покупку! Приходите еще!",
+        "uploadFile": "Загрузить файл",
+        "removeFile": "Удалить файл",
+        "uploadYourFiles": "Загрузите файл",
+        "attachYourFiles": "Прикрепить файл в формате csv"
     },
     "orders": {
         "manage": "Управление заказами",
@@ -24,6 +33,16 @@
         "summary": "Итого"
     },
     "products": {
-        "manage": "Управление продуктами"
+        "manage": "Управление продуктами",
+        "save": "Добавить",
+        "create": "Добавить новый продукт",
+        "title": "Заголовок",
+        "description": "Описание",
+        "count": "Доступно на складе (кол-во)",
+        "price": "Цена"
+    },
+    "errorMessage": {
+        "cantUploadFile": "Извините, сервис временно недоступен (причина: {reason})",
+        "checkDevLogs": "Нажмите F12 Developer tools для доп.информации"
     }
 }

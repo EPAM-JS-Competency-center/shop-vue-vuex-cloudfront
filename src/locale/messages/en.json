@@ -7,7 +7,17 @@
         "manage": "Manage",
         "delete": "Delete",
         "next": "Next",
-        "back": "Back"
+        "back": "Back",
+        "clear": "Clear",
+        "close": "Close",
+        "order": "Order",
+        "total": "Total",
+        "free": "Free",
+        "thankYouForPurchase": "Thank you for your purchase!",
+        "uploadFile": "Upload file",
+        "removeFile": "Remove file",
+        "uploadYourFiles": "Upload your files",
+        "attachYourFiles": "Attach csv file, click here"
     },
     "orders": {
         "manage": "Manage orders",
@@ -23,6 +33,16 @@
         "summary": "Cart Summary"
     },
     "products": {
-        "manage": "Manage products"
+        "manage": "Manage products",
+        "save": "Save product",
+        "create": "Create new product",
+        "title": "Title",
+        "description": "Description",
+        "count": "Count",
+        "price": "Price"
+    },
+    "errorMessage": {
+        "cantUploadFile": "Sorry, I can't upload the attachment (reason: {reason})",
+        "checkDevLogs": "Press F12 Developer tools for details"
     }
 }

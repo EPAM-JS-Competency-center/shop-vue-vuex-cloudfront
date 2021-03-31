@@ -1,4 +1,3 @@
-
 <template>
   <v-menu left bottom>
     <template v-slot:activator="{ on, attrs }">
@@ -24,6 +23,12 @@
       <v-list-item to="/admin/products">
         <v-list-item-title>
           {{ $t("products.manage") }}
+        </v-list-item-title>
+      </v-list-item>
+
+      <v-list-item to="/admin/product-form">
+        <v-list-item-title>
+          {{ $t("products.create") }}
         </v-list-item-title>
       </v-list-item>
     </v-list>

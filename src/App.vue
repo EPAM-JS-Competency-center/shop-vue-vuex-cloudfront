@@ -2,9 +2,8 @@
   <div id="app">
     <v-app-router></v-app-router>
 
-    <v-app-version :value="appVersion"></v-app-version>
+    <v-app-version bottomRightCorner :value="appVersion"></v-app-version>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -17,8 +16,8 @@ const APP_VERSION = process.env.VUE_APP_VERSION;
 export default {
   components: { VAppVersion, VAppRouter },
   data: () => ({
-    appVersion: APP_VERSION
-  })
+    appVersion: APP_VERSION,
+  }),
 };
 </script>
 

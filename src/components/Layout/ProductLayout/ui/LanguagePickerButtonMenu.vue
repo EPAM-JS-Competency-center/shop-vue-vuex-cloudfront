@@ -1,11 +1,9 @@
-
 <template>
   <v-menu left bottom>
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         class="ma-2 pa-2"
         icon
-
         v-bind="attrs"
         v-on="on"
         aria-haspopup="true"
@@ -15,8 +13,13 @@
     </template>
 
     <v-list v-model="$i18n.locale">
-      <v-list-item v-for="(lang, i) in langs" :key="i" link>
-        <v-list-item-title @click="$i18n.locale = lang" >
+      <v-list-item
+        v-for="(lang, i) in langs"
+        :key="i"
+        link
+        @click="$i18n.locale = lang"
+      >
+        <v-list-item-title>
           {{ lang }}
         </v-list-item-title>
       </v-list-item>
