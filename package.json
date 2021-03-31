@@ -1,7 +1,8 @@
 {
   "name": "shop-vue-vuex-cloudfront",
-  "version": "0.0.7",
+  "version": "0.1.1",
   "private": true,
+  "author": "JSCC",
   "scripts": {
     "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 1111 --host localhost",
     "build": "vue-cli-service build",

@@ -29,19 +29,23 @@
 
     <v-list-item class="px-0">
       <v-list-item-content>
-        <v-list-item-title>Shipping cost:</v-list-item-title>
+        <v-list-item-title>
+          {{ $t("cart.shippingAddress") }}
+        </v-list-item-title>
       </v-list-item-content>
 
       <v-list-item-action>
-        <v-list-item-title class="body2 font-weight-bold"
-          >Free</v-list-item-title
-        >
+        <v-list-item-title class="body2 font-weight-bold">
+          {{ $t("common.free") }}
+        </v-list-item-title>
       </v-list-item-action>
     </v-list-item>
 
     <v-list-item class="px-0">
       <v-list-item-content>
-        <v-list-item-title class="text-h5">Total</v-list-item-title>
+        <v-list-item-title class="text-h5">
+          {{ $t("common.total") }}
+        </v-list-item-title>
       </v-list-item-content>
 
       <v-list-item-action>

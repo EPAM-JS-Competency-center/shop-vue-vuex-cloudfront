@@ -6,6 +6,7 @@ import ProductHomeIndex from "./views/ProductHomeIndex/ProductHomeIndex.vue";
 import CartCheckout from "./views/CartCheckout/CartCheckout.vue";
 import ProductImport from "./views/ProductImport/ProductImport.vue";
 import ProductOrders from "./views/ProductOrders/ProductOrders.vue";
+import EditableProductForm from "./views/EditableProductForm/EditableProductForm.vue";
 
 export const routes: RouteConfig[] = [
     {
@@ -22,6 +23,11 @@ export const routes: RouteConfig[] = [
                 path: "/admin/products",
                 name: "ProductImport",
                 component: ProductImport,
+            },
+            {
+                path: "/admin/product-form/:id?",
+                name: "EditableProductForm",
+                component: EditableProductForm,
             },
             {
                 path: "/admin/orders",
