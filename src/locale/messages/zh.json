@@ -34,8 +34,10 @@
     },
     "products": {
         "manage": "产品管理",
+        "edit": "编辑产品",
         "save": "保存产品",
         "create": "创建新产品",
+        "update": "应用更改",
         "title": "标题",
         "description": "说明",
         "count": "计数",
@@ -43,6 +45,7 @@
     },
     "errorMessage": {
         "cantUploadFile": "对不起，服务暂时无法使用。 (理由: {reason})",
+        "cantProceedRequest": "抱歉，我无法处理请求（原因：{reason})",
         "checkDevLogs": "点击 F12 Developer tools 更多信息"
     }
 }

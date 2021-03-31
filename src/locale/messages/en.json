@@ -34,7 +34,9 @@
     },
     "products": {
         "manage": "Manage products",
+        "edit": "Edit the product",
         "save": "Save product",
+        "update": "Update product",
         "create": "Create new product",
         "title": "Title",
         "description": "Description",
@@ -43,6 +45,7 @@
     },
     "errorMessage": {
         "cantUploadFile": "Sorry, I can't upload the attachment (reason: {reason})",
+        "cantProceedRequest": "Sorry, I can't proceed this request (reason: {reason})",
         "checkDevLogs": "Press F12 Developer tools for details"
     }
 }

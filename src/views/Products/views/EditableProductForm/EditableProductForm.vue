@@ -1,28 +1,113 @@
 <template>
   <div class="grey lighten-5">
-    <v-container class="white">
-      <h4 class="text-h4 d-flex justify-center py-6">
-        {{ $t("products.create") }}
-      </h4>
+    <v-progress-linear indeterminate color="indigo" v-show="isFetching">
+    </v-progress-linear>
 
-      <v-product-form @submit="handleProductSubmit"></v-product-form>
+    <v-container class="white">
+      <v-product-form
+        :disabled="isFetching"
+        :product="product"
+        :isEditableMode="isEditableMode"
+        @submit="handleProductSubmit"
+      ></v-product-form>
     </v-container>
+
+    <v-snackbar v-model="showErrorSnackbar" timeout="7000">
+      <p class="my-0 font-weight-medium" v-html="errorMessage"></p>
+
+      <p class="my-0 text-caption font-weight-thin">
+        {{ $t("errorMessage.checkDevLogs") }}
+      </p>
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="pink"
+          text
+          v-bind="attrs"
+          @click="showErrorSnackbar = false"
+        >
+          {{ $t("common.close") }}
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 
+import { productApi } from "@/api/product-api";
 import { Product } from "@/models/product";
 
 import VProductForm from "./ui/ProductForm.vue";
 
+const emptyProductStub = {
+  id: "",
+  title: "",
+  description: "",
+  count: 0,
+  price: 0,
+};
+
+// TODO: common snackbar
+
 export default Vue.extend({
   name: "EditableProductForm",
   components: { VProductForm },
+  data: () => ({
+    isEditableMode: false,
+    isFetching: false,
+    //
+    showErrorSnackbar: false,
+    errorMessage: "",
+    //
+    product: emptyProductStub,
+  }),
+  beforeRouteEnter(to, _, next) {
+    next((vm) => {
+      // @ts-expect-error todo
+      vm.fetchExistingProduct(to.params.productId);
+    });
+  },
   methods: {
-    handleProductSubmit(values: Product) {
+    async fetchExistingProduct(id?: string) {
+      this.isEditableMode = Boolean(id);
+
+      if (!id) {
+        return;
+      }
+
+      this.isFetching = true;
+
+      try {
+        this.product = await productApi.fetchProductById(id);
+      } catch (e) {
+        this.showSnackbarWithMessage(e.message);
+      } finally {
+        this.isFetching = false;
+      }
+    },
+    showSnackbarWithMessage(errorMessage: string) {
+        const message = this.$t("errorMessage.cantProceedRequest", {
+          reason: errorMessage,
+        });
+
+      this.showErrorSnackbar = true;
+      this.errorMessage = message.toString();
+    },
+    async handleProductSubmit(values: Product) {
       console.info(values);
+      this.isFetching = true;
+
+      try {
+        await productApi.saveProduct(values);
+
+        this.$router.push("/admin/products");
+      } catch (e) {
+        this.showSnackbarWithMessage(e.message);
+      } finally {
+        this.isFetching = false;
+      }
     },
   },
 });

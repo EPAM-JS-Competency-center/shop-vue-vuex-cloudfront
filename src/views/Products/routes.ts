@@ -25,7 +25,7 @@ export const routes: RouteConfig[] = [
                 component: ProductImport,
             },
             {
-                path: "/admin/product-form/:id?",
+                path: "/admin/product-form/:productId?",
                 name: "EditableProductForm",
                 component: EditableProductForm,
             },
