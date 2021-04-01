@@ -18,16 +18,16 @@
 import Vue from 'vue';
 
 import { ordersApi } from '@/api/orders-api';
+import { Order } from '@/models/order';
 
 import VOrdersTable from "./ui/OrdersTable.vue";
 
-// TODO: avoid any
 export default Vue.extend({
   name: "ProductOrders",
   components: { VOrdersTable },
   data () {
     return {
-      orders: [] as any,
+      orders: [] as Order[],
       isFetching: false,
     };
   },
@@ -39,7 +39,7 @@ export default Vue.extend({
       this.isFetching = true;
 
       ordersApi.fetchOrders()
-        .then((items: any) => {
+        .then((items: Order[]) => {
           this.orders = items;
         })
         .finally(() => {
@@ -50,8 +50,8 @@ export default Vue.extend({
       this.isFetching = true;
 
       ordersApi.deleteOrderById(id)
-       .then ((items: any) => {
-          this.orders = items;
+       .then (() => {
+         return this.fetchOrders();
         })
        .finally(() => {
           this.isFetching = false;

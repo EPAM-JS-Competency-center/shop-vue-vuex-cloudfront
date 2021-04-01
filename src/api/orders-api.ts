@@ -1,20 +1,17 @@
 import axios from 'axios';
 
 import { API_PATHS } from '@/constants/api-paths';
+import { Order } from '@/models/order';
 
 import orderList from './orderList.json';
 
 const deleteOrderById = (id: string) => {
-    return axios.delete(`${API_PATHS.order}/order/${id}`)
-        .then(() => {
-            return axios.get(`${API_PATHS.order}/order`)
-        }
-        ).then(res => res.data)
+    console.info(`DELETE deleteOrderById: ${id}`);
+
+    return axios.delete(`${API_PATHS.order}/order/${id}`);
 }
 
-const fetchOrders = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
+const fetchOrders = async (): Promise<Order[]> => {
     return orderList;
     /* TODO: uncomment when time comes
         return axios.get(`${API_PATHS.order}/order`)

@@ -29,6 +29,7 @@
 
       <v-col cols="12" md="6">
         <v-text-field
+             type="number"
           :label="$t('products.price')"
           v-model="price"
           :rules="validationRules"
@@ -37,6 +38,7 @@
 
       <v-col cols="12" md="6">
         <v-text-field
+          type="number"
           :label="$t('products.count')"
           v-model="count"
           :rules="validationRules"
@@ -110,6 +112,10 @@ export default Vue.extend({
     },
     handleFormSubmit() {
       this.triggerValidation();
+
+      if (!this.valid) {
+        return;
+      }
 
       this.$emit("submit", {
         title: this.title,

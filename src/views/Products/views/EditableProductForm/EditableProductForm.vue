@@ -1,7 +1,12 @@
 <template>
   <div class="grey lighten-5">
-    <v-progress-linear indeterminate color="indigo" v-show="isFetching">
-    </v-progress-linear>
+      <v-progress-linear
+        indeterminate
+        color="indigo"
+        :class="[isFetching ? '' : 'opacity-0']"
+      >
+      </v-progress-linear>
+
 
     <v-container class="white">
       <v-product-form
@@ -32,6 +37,12 @@
     </v-snackbar>
   </div>
 </template>
+
+<style scoped>
+  .opacity-0 {
+    opacity: 0;
+  }
+</style>
 
 <script lang="ts">
 import Vue from "vue";
@@ -88,9 +99,9 @@ export default Vue.extend({
       }
     },
     showSnackbarWithMessage(errorMessage: string) {
-        const message = this.$t("errorMessage.cantProceedRequest", {
-          reason: errorMessage,
-        });
+      const message = this.$t("errorMessage.cantProceedRequest", {
+        reason: errorMessage,
+      });
 
       this.showErrorSnackbar = true;
       this.errorMessage = message.toString();
