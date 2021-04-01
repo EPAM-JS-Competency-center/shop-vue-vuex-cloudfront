@@ -17,7 +17,11 @@
         "uploadFile": "上传文件",
         "removeFile": "删除文件",
         "uploadYourFiles": "上传您的文件",
-        "attachYourFiles": "附上csv文件，点击这里"
+        "attachYourFiles": "附上csv文件，点击这里",
+        "status": "状况",
+        "changeStatus": "更改状态",
+        "dateAndTime": "日期和时间",
+        "comment": "评论"
     },
     "orders": {
         "manage": "订单管理",
@@ -25,7 +29,15 @@
         "complete": "完整订单",
         "review": "查看您的订单",
         "thankYou": "谢谢你的订单。",
-        "inProgress": "您的订单已经下达。我们的经理会尽快打电话给您，以澄清细节。"
+        "inProgress": "您的订单已经下达。我们的经理会尽快打电话给您，以澄清细节。",
+        "---": "---",
+        "statusOpen": "开放式",
+        "statusApproved": "核定人数",
+        "statusConfirmed": "已确认",
+        "statusSent": "已发送",
+        "statusCompleted": "已完成",
+        "statusCancelled": "已取消",
+        "-=-": "-=-"
     },
     "cart": {
         "review": "查看您的购物车",

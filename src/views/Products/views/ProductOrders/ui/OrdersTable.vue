@@ -34,6 +34,7 @@
             class="mr-1"
             color="primary"
             small
+            exact
             :to="`/admin/order/${item.id}`"
           >
             {{ $t("common.manage") }}

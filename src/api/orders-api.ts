@@ -12,6 +12,7 @@ const deleteOrderById = (id: string) => {
 }
 
 const fetchOrders = async (): Promise<Order[]> => {
+    // @ts-expect-error todo
     return orderList;
     /* TODO: uncomment when time comes
         return axios.get(`${API_PATHS.order}/order`)

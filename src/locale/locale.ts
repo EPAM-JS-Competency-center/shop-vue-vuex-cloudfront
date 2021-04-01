@@ -19,5 +19,7 @@ const availableLangs = [Locale.RU, Locale.EN, Locale.ZH]
 export {
     availableLangs,
     messages,
-    Locale
+
+    //
+    Locale,
 }
