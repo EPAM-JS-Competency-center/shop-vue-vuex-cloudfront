@@ -1,11 +1,66 @@
 import type { VueConstructor } from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
-import { routes as productRoutes } from '@/views/Products/routes';
+import { ProductMainEntry } from "../views/ProductMainEntry";
+
+import { CartCheckout } from "../views/CartCheckout";
+import { ProductImport } from "../views/ProductImport";
+import { ProductOrders } from "../views/ProductOrders";
+import { ProductHomeIndex } from "../views/ProductHomeIndex";
+import { EditableOrderForm } from "../views/EditableOrderForm";
+import { EditableProductForm } from "../views/EditableProductForm";
+
+const orderRoutes: RouteConfig[] = [
+  {
+    path: '/admin/order/:orderId?',
+    name: 'EditableOrderForm',
+    component: EditableOrderForm,
+  },
+  {
+    path: "/admin/orders",
+    name: "ProductOrders",
+    component: ProductOrders,
+  },
+];
+
+const productRoutes: RouteConfig[] = [
+  {
+    path: "/admin/products",
+    name: "ProductImport",
+    component: ProductImport,
+  },
+  {
+    path: "/admin/product-form/:productId?",
+    name: "EditableProductForm",
+    component: EditableProductForm,
+  },
+]
+
+
+const routes: RouteConfig[] = [
+  {
+    path: "/",
+    name: "ProductMainEntry",
+    component: ProductMainEntry,
+    children: [
+      {
+        path: "/cart",
+        name: "CartCheckout",
+        component: CartCheckout,
+      },
+      ...productRoutes,
+      ...orderRoutes,
+      // default
+      {
+        path: "/*",
+        name: "ProductHomeIndex",
+        component: ProductHomeIndex,
+      },
+    ],
+  },
+];
 
 export const connectRouter = (Vue: VueConstructor) => {
-  const routes: RouteConfig[] = productRoutes;
-
   Vue.use(VueRouter);
 
   return new VueRouter({

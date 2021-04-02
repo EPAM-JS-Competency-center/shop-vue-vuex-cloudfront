@@ -1,0 +1,1 @@
+export { default as ProductHomeIndex } from './ProductHomeIndex.vue';

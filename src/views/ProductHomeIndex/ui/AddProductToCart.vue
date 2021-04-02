@@ -33,11 +33,9 @@ export default Vue.extend({
     maxCount: Number,
     isEditable: Boolean,
   },
-  data () {
-    return {
-      productCount: 0,
-    };
-  },
+  data: () => ({
+    productCount: 0,
+  }),
   computed: {
     isAddButtonDisabled(): boolean {
       return this.productCount >= this.maxCount;
