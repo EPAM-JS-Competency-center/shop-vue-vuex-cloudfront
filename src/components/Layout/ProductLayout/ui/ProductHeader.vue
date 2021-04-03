@@ -10,8 +10,10 @@
 
     <v-account-btn-menu></v-account-btn-menu>
 
-    <v-btn class="ma-2 pa-2 mr-5" to="/cart" icon large>
-      <v-icon>shopping_cart</v-icon>
+    <v-btn to="/cart" icon large>
+      <v-badge color="pink" :content="cartCountBadge" :value="cartCountBadge" dark>
+        <v-icon>shopping_cart</v-icon>
+      </v-badge>
     </v-btn>
 
     <v-language-picker-btn-menu></v-language-picker-btn-menu>
@@ -19,14 +21,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
-import VAccountBtnMenu from './AccountButtonMenu.vue';
-import VLanguagePickerBtnMenu from './LanguagePickerButtonMenu.vue';
+import VAccountBtnMenu from "./AccountButtonMenu.vue";
+import VLanguagePickerBtnMenu from "./LanguagePickerButtonMenu.vue";
 
 export default Vue.extend({
   name: "ProductHeader",
-  components: {VAccountBtnMenu, VLanguagePickerBtnMenu},
+  props: {
+    cartCountBadge: Number,
+  },
+  components: { VAccountBtnMenu, VLanguagePickerBtnMenu },
 });
 </script>
 

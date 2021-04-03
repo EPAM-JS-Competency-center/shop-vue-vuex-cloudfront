@@ -51,9 +51,13 @@ export default Vue.extend({
     },
     incrementProduct() {
       this.productCount += 1;
+
+      this.$emit("increment", this.productCount);
     },
     decrementProduct() {
       this.productCount -= 1;
+
+      this.$emit("decrement", this.productCount);
     },
   },
 });

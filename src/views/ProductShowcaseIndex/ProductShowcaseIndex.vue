@@ -28,6 +28,8 @@
             <v-card-actions>
               <v-add-product-to-cart
                 isEditable
+                @increment="handleProductIncrement(product)"
+                @decrement="handleProductDecrement(product.id)"
                 :maxCount="product.count"
               ></v-add-product-to-cart>
             </v-card-actions>
@@ -43,16 +45,17 @@ import Vue from "vue";
 
 import VAddProductToCart from "./ui/AddProductToCart.vue";
 
+import { Product } from '@/models/product';
 import { productApi } from '@/api/product-api';
 
 // TODO: avoid any, model
 export default Vue.extend({
-  name: "ProductHomeIndex",
+  name: "ProductShowcaseIndex",
   components: { VAddProductToCart },
   data() {
     return {
       isFetching: false,
-      products: [],
+      products: [] as Product[],
       error: null,
     };
   },
@@ -65,15 +68,21 @@ export default Vue.extend({
 
       productApi
         .fetchAvailableProducts()
-        .then((products: any) => {
+        .then((products) => {
           this.products = products;
         })
         .finally(() => {
           this.isFetching = false;
         });
     },
+
+    handleProductIncrement (product: Product) {
+      this.$store.dispatch('cart/addProductToCart', product);
+    },
+
+    handleProductDecrement (productId: string) {
+      this.$store.dispatch('cart/removeProductFromCart', productId);
+    }
   },
 });
 </script>
-
-<style scoped></style>

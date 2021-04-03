@@ -59,7 +59,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import VAddProductToCart from "../../ProductHomeIndex/ui/AddProductToCart.vue";
+import VAddProductToCart from "../../ProductShowcaseIndex/ui/AddProductToCart.vue";
 
 export default Vue.extend({
   name: "CartList",

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-product-header></v-product-header>
+    <v-product-header :cartCountBadge="cartCountBadge"></v-product-header>
 
     <v-main>
       <v-container class="px-0" fluid>
@@ -30,6 +30,9 @@ import VProductHeader from "./ui/ProductHeader.vue";
 
 export default {
   name: "ProductLayout",
+  props: {
+    cartCountBadge: Number,
+  },
   data: () => ({
     currentDate: `${new Date().getFullYear()}.`,
   }),

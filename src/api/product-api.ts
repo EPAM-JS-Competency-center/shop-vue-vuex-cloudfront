@@ -5,7 +5,7 @@ import { Product } from '@/models/product';
 
 import productList from './productList.json';
 
-const fetchAvailableProducts = async () => {
+const fetchAvailableProducts = async (): Promise<Product[]> => {
   return productList;
   /* TODO: uncomment when time comes
   return axios.get(`${API_PATHS.bff}/product/available/`)
@@ -14,7 +14,7 @@ const fetchAvailableProducts = async () => {
 };
 
 
-const fetchProducts = async () => {
+const fetchProducts = async (): Promise<Product[]> => {
   return productList;
   /* TODO: uncomment when time comes
   axios.get(`${API_PATHS.bff}/product`)

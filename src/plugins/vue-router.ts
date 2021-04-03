@@ -6,7 +6,7 @@ import { ProductMainEntry } from "../views/ProductMainEntry";
 import { CartCheckout } from "../views/CartCheckout";
 import { ProductImport } from "../views/ProductImport";
 import { ProductOrders } from "../views/ProductOrders";
-import { ProductHomeIndex } from "../views/ProductHomeIndex";
+import { ProductShowcaseIndex } from "../views/ProductShowcaseIndex";
 import { EditableOrderForm } from "../views/EditableOrderForm";
 import { EditableProductForm } from "../views/EditableProductForm";
 
@@ -53,8 +53,8 @@ const routes: RouteConfig[] = [
       // default
       {
         path: "/*",
-        name: "ProductHomeIndex",
-        component: ProductHomeIndex,
+        name: "ProductShowcaseIndex",
+        component: ProductShowcaseIndex,
       },
     ],
   },

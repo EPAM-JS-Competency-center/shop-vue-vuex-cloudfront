@@ -18,7 +18,7 @@
 import Vue from "vue";
 
 import { productApi } from "@/api/product-api";
-import { Product } from "@/models/Product";
+import { Product } from "@/models/product";
 
 import VCsvProductTable from "./ui/CSVProductTable.vue";
 import VCsvFileUploader from "./ui/CSVFileUploader.vue";
