@@ -30,21 +30,21 @@
 
 				<v-stepper-items>
 					<v-stepper-content step="0">
-						<v-this-cart-is-empty></v-this-cart-is-empty>
+						<v-this-cart-is-empty />
 					</v-stepper-content>
 
 					<v-stepper-content step="1">
 						<v-review-your-cart-step
 							:cartItems="cartItems"
 							@complete="handleReviewCartStep1"
-						></v-review-your-cart-step>
+						/>
 					</v-stepper-content>
 
 					<v-stepper-content step="2">
 						<v-shipping-address-step
 							@complete="handleShippingAddressStep2"
 							@back="goBackStep"
-						></v-shipping-address-step>
+						/>
 					</v-stepper-content>
 
 					<v-stepper-content step="3">
@@ -53,19 +53,11 @@
 							:address="address"
 							@complete="handleOrderStep3"
 							@back="goBackStep"
-						></v-review-your-order-step>
+						/>
 					</v-stepper-content>
 
 					<v-stepper-content step="4">
-						<div class="d-flex justify-center flex-column align-center">
-							<p class="text-subtitle1">
-								{{ $t('orders.inProgress') }}
-							</p>
-
-							<p class="text-h5">
-								{{ $t('orders.thankYou') }}
-							</p>
-						</div>
+						<v-thank-you-for-order />
 					</v-stepper-content>
 				</v-stepper-items>
 			</v-stepper>
@@ -80,7 +72,9 @@ import { mapGetters } from 'vuex';
 import VReviewYourCartStep from './ui/ReviewYourCartStep.vue';
 import VShippingAddressStep from './ui/ShippingAddressStep.vue';
 import VReviewYourOrderStep from './ui/ReviewYourOrderStep.vue';
+//
 import VThisCartIsEmpty from './ui/ThisCartIsEmpty.vue';
+import VThankYouForOrder from './ui/ThankYouForOrder.vue';
 
 interface ShippingAddressFormValues {
 	firstname: string;
@@ -93,6 +87,7 @@ export default Vue.extend({
 	name: 'CartCheckout',
 	components: {
 		VThisCartIsEmpty,
+		VThankYouForOrder,
 		//
 		VShippingAddressStep,
 		VReviewYourCartStep,

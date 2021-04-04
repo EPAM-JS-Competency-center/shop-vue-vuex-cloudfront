@@ -5,7 +5,7 @@
   "author": "JSCC",
   "scripts": {
     "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 5555 --host localhost",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --dest build",
     "build:version": "npm version patch && npm run build",
     "format": "prettier --write --plugin-search-dir=. src/**/*.{ts,vue}",
     "test:unit": "vue-cli-service test:unit",
@@ -47,6 +47,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.2"
   }
 }
