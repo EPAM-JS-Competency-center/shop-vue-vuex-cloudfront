@@ -1,1 +1,1 @@
-export { default as VAppVersion} from './AppVersion.vue';
+export { default as VAppVersion } from './AppVersion.vue';

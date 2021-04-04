@@ -1,5 +1,5 @@
-import Vue from "vue";
-import Vuex, { Store } from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 // import window from '@/libs/window';
 
@@ -15,15 +15,14 @@ const localStoragePlugin = (store: Store<any>) => {
 }
 */
 
-
 export default new Vuex.Store({
-  modules: {
-    cart: cartModuleStore,
-    snackbar: snackbarModuleStore,
-  },
-  getters: {
-    cartErrorMessage: (state) => state.cart.errorMessage,
-    cartItems: (state) => state.cart.cartItems,
-  }
-  // plugins: [localStoragePlugin]
+	modules: {
+		cart: cartModuleStore,
+		snackbar: snackbarModuleStore,
+	},
+	getters: {
+		cartErrorMessage: state => state.cart.errorMessage,
+		cartItems: state => state.cart.cartItems,
+	},
+	// plugins: [localStoragePlugin]
 });

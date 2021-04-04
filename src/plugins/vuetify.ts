@@ -8,7 +8,7 @@ import '@mdi/font/css/materialdesignicons.css';
 const options = {};
 
 export const connectVuetify = (Vue: VueConstructor) => {
-    Vue.use(Vuetify)
+	Vue.use(Vuetify);
 
-    return new Vuetify(options);
+	return new Vuetify(options);
 };

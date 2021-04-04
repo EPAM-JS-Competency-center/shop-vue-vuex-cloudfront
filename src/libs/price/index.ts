@@ -1,1 +1,1 @@
-export {  formatter } from './formatter';
+export { formatter } from './formatter';

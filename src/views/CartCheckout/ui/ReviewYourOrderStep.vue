@@ -1,43 +1,43 @@
 <template>
-  <v-container>
-    <p class="text-h6">Order summary</p>
+	<v-container>
+		<p class="text-h6">Order summary</p>
 
-    <v-order-details :cartItems="cartItems" :address="address">
-    </v-order-details>
+		<v-order-details :cartItems="cartItems" :address="address">
+		</v-order-details>
 
-    <div class="d-flex justify-end">
-      <v-btn class="mr-1" type="button" @click="$emit('back')">
-        {{ $t("common.back") }}
-      </v-btn>
+		<div class="d-flex justify-end">
+			<v-btn class="mr-1" type="button" @click="$emit('back')">
+				{{ $t('common.back') }}
+			</v-btn>
 
-      <v-btn
-        class="ml-1"
-        type="button"
-        color="primary"
-        @click="handleStepSubmit"
-      >
-        {{ $t("orders.apply") }}
-      </v-btn>
-    </div>
-  </v-container>
+			<v-btn
+				class="ml-1"
+				type="button"
+				color="primary"
+				@click="handleStepSubmit"
+			>
+				{{ $t('orders.apply') }}
+			</v-btn>
+		</div>
+	</v-container>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
-import VOrderDetails from "./OrderDetails.vue";
+import VOrderDetails from './OrderDetails.vue';
 
 export default Vue.extend({
-  name: "ReviewYourOrderStep",
-  components: { VOrderDetails },
-  props: {
-    cartItems: Array,
-    address: Object,
-  },
-  methods: {
-    handleStepSubmit() {
-      this.$emit("complete");
-    },
-  },
+	name: 'ReviewYourOrderStep',
+	components: { VOrderDetails },
+	props: {
+		cartItems: Array,
+		address: Object,
+	},
+	methods: {
+		handleStepSubmit() {
+			this.$emit('complete');
+		},
+	},
 });
 </script>

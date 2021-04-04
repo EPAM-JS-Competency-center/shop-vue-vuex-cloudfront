@@ -9,18 +9,18 @@ import { connecti18n } from './plugins/vue-i18n';
 import store from './store/store';
 
 const createApp = () => {
-  Vue.config.productionTip = false;
+	Vue.config.productionTip = false;
 
-  return new Vue({
-    el: '#app',
-    //
-    router: connectRouter(Vue),
-    vuetify: connectVuetify(Vue),
-    i18n: connecti18n(Vue),
-    store,
-    //
-    render: h => h(App),
-  });
-}
+	return new Vue({
+		el: '#app',
+		//
+		router: connectRouter(Vue),
+		vuetify: connectVuetify(Vue),
+		i18n: connecti18n(Vue),
+		store,
+		//
+		render: h => h(App),
+	});
+};
 
-createApp()
+createApp();

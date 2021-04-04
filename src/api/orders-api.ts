@@ -6,21 +6,21 @@ import { Order } from '@/models/order';
 import orderList from './orderList.json';
 
 const deleteOrderById = (id: string) => {
-    console.info(`DELETE deleteOrderById: ${id}`);
+	console.info(`DELETE deleteOrderById: ${id}`);
 
-    return axios.delete(`${API_PATHS.order}/order/${id}`);
-}
+	return axios.delete(`${API_PATHS.order}/order/${id}`);
+};
 
 const fetchOrders = async (): Promise<Order[]> => {
-    // @ts-expect-error todo
-    return orderList;
-    /* TODO: uncomment when time comes
+	// @ts-expect-error todo
+	return orderList;
+	/* TODO: uncomment when time comes
         return axios.get(`${API_PATHS.order}/order`)
         .then(res => res.data);
     */
-}
+};
 
 export const ordersApi = {
-    deleteOrderById,
-    fetchOrders,
+	deleteOrderById,
+	fetchOrders,
 };

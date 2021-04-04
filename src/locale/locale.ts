@@ -3,23 +3,22 @@ import en from './messages/en.json';
 import zh from './messages/zh.json';
 
 enum Locale {
-    RU = 'RU',
-    EN = 'EN',
-    ZH = 'ZH'
+	RU = 'RU',
+	EN = 'EN',
+	ZH = 'ZH',
 }
 
 const messages = {
-    ru,
-    en,
-    zh,
+	ru,
+	en,
+	zh,
 };
 
-const availableLangs = [Locale.RU, Locale.EN, Locale.ZH]
+const availableLangs = [Locale.RU, Locale.EN, Locale.ZH];
 
 export {
-    availableLangs,
-    messages,
-
-    //
-    Locale,
-}
+	availableLangs,
+	messages,
+	//
+	Locale,
+};

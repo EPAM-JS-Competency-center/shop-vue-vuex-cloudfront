@@ -1,5 +1,5 @@
 <template>
-    <div class="router">
-          <router-view />
-    </div>
+	<div class="router">
+		<router-view />
+	</div>
 </template>
