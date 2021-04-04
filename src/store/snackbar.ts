@@ -1,6 +1,6 @@
 import type { Module } from "vuex";
 
-interface SnackbarState {
+export interface SnackbarState {
   visible: boolean;
   message: string;
 

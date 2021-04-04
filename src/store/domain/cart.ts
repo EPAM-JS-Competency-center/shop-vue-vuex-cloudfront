@@ -39,7 +39,7 @@ const cartModuleStore: Module<CartState, any> = {
       } else {
         cartItems.push({ product, count: 1 });
       }
-      debugger;
+
       state.cartItems = [...cartItems]
     },
     removeProductFromCart(state, productId: string) {

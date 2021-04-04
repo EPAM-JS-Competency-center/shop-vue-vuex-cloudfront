@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'right-bottom-corner': bottomRightCorner }" aria-hidden="true">
-    {{ appVersion }}
+    <span class="version"> {{ appVersion }} </span>
   </div>
 </template>
 
@@ -8,7 +8,22 @@
 div {
   position: fixed;
   z-index: 100;
-  opacity: 0.5;
+}
+
+.version {
+  animation: smooth 5s ease-in infinite;
+}
+
+@keyframes smooth {
+  0% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.9;
+  }
 }
 
 .right-bottom-corner {
