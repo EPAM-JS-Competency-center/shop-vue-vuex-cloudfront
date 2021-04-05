@@ -1,0 +1,63 @@
+{
+    "app": {
+        "title": "Мой магазин!",
+        "loading": "Загрузка.. Пожалуйста, подождите"
+    },
+    "common": {
+        "manage": "Редактировать",
+        "delete": "Удалить",
+        "next": "Далее",
+        "back": "Назад",
+        "order": "Заказать",
+        "total": "Итого",
+        "clear": "Очистить",
+        "close": "Закрыть",
+        "free": "Бесплатно",
+        "thankYouForPurchase": "Спасибо за покупку! Приходите еще!",
+        "uploadFile": "Загрузить файл",
+        "removeFile": "Удалить файл",
+        "uploadYourFiles": "Загрузите файл",
+        "attachYourFiles": "Прикрепить файл в формате csv",
+        "status": "Статус",
+        "changeStatus": "Изменить Статус",
+        "dateAndTime": "Дата и время",
+        "comment": "Комментарий"
+    },
+    "orders": {
+        "manage": "Управление заказами",
+        "apply": "Заказать",
+        "complete": "Завершить заказ",
+        "review": "Заказ",
+        "thankYou": "Спасибо за ваш заказ",
+        "inProgress": "Ваш заказ размещен. В ближайшее время Вам перезвонит наш менеджер для уточнения деталей.",
+        "---": "---",
+        "statusOpen": "Открыт",
+        "statusApproved": "Утвержден",
+        "statusConfirmed": "Подтерждён",
+        "statusSent": "Отправлен",
+        "statusCompleted": "Выполнен",
+        "statusCancelled": "Отклонён",
+        "-=-": "-=-"
+    },
+    "cart": {
+        "review": "Корзина",
+        "shippingAddress": "Адрес доставки",
+        "summary": "Итого"
+    },
+    "products": {
+        "manage": "Управление продуктами",
+        "edit": "Редактировать продукт",
+        "save": "Добавить",
+        "update": "Применить изменения",
+        "create": "Добавить новый продукт",
+        "title": "Заголовок",
+        "description": "Описание",
+        "count": "Доступно на складе (кол-во)",
+        "price": "Цена"
+    },
+    "errorMessage": {
+        "cantUploadFile": "Извините, сервис временно недоступен (причина: {reason})",
+        "cantProceedRequest": "Извините, не могу обработать запрос (причина: {reason})",
+        "checkDevLogs": "Нажмите F12 Developer tools для доп.информации"
+    }
+}

@@ -1,32 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+	<div id="app">
+		<v-app-router></v-app-router>
+
+		<v-snackbar-container></v-snackbar-container>
+		<v-app-version bottomRightCorner :value="appVersion"></v-app-version>
+	</div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script lang="ts">
+import { VAppVersion } from '@/libs/version';
+import { VSnackbarContainer } from '@/components/Snackbar';
+
+import VAppRouter from './AppRouter.vue';
+
+const APP_VERSION = process.env.VUE_APP_VERSION;
+
+export default {
+	components: { VAppVersion, VAppRouter, VSnackbarContainer },
+	data: () => ({
+		appVersion: APP_VERSION,
+	}),
+};
+</script>
+
+<style>
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
 }
 </style>

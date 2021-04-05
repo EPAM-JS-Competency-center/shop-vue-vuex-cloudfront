@@ -6,14 +6,19 @@
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "typeRoots": [
+      "./node_modules/vuetify/types"
+    ],
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "vuetify",
     ],
     "paths": {
       "@/*": [
@@ -35,6 +40,7 @@
     "tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "tests"
   ]
 }

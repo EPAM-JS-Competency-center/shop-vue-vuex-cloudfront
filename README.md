@@ -1,6 +1,6 @@
 # shop-vue-vuex-cloudfront
 
-`Development branch`: develop
+See `develop` branch for development
 
 ## Project setup
 ```
