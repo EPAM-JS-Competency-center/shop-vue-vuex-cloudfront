@@ -56,6 +56,7 @@
         "price": "价格"
     },
     "errorMessage": {
+        "orderCreation": "订单创建错误 (理由: {reason})",
         "cantUploadFile": "对不起，服务暂时无法使用。 (理由: {reason})",
         "cantProceedRequest": "抱歉，我无法处理请求（原因：{reason})",
         "checkDevLogs": "点击 F12 Developer tools 更多信息"

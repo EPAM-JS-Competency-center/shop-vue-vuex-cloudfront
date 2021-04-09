@@ -25,9 +25,11 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
+
 import VProductHeader from './ui/ProductHeader.vue';
 
-export default {
+export default Vue.extend({
 	name: 'ProductLayout',
 	props: {
 		cartCountBadge: Number,
@@ -36,5 +38,5 @@ export default {
 		currentDate: `${new Date().getFullYear()}.`,
 	}),
 	components: { VProductHeader },
-};
+});
 </script>

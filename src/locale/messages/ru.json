@@ -56,6 +56,7 @@
         "price": "Цена"
     },
     "errorMessage": {
+        "orderCreation": "Ошибка создания заказа (причина: {reason})",
         "cantUploadFile": "Извините, сервис временно недоступен (причина: {reason})",
         "cantProceedRequest": "Извините, не могу обработать запрос (причина: {reason})",
         "checkDevLogs": "Нажмите F12 Developer tools для доп.информации"
