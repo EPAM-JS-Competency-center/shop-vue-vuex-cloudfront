@@ -54,7 +54,9 @@
         "title": "Title",
         "description": "Description",
         "count": "Count",
-        "price": "Price"
+        "dynamicCount": "Count: {count}",
+        "price": "Price",
+        "dynamicPrice": "Count: {price}"
     },
     "errorMessage": {
         "orderCreation": "Order creation error (reason: {reason})",

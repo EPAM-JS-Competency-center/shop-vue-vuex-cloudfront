@@ -52,8 +52,11 @@
         "create": "Добавить новый продукт",
         "title": "Заголовок",
         "description": "Описание",
-        "count": "Доступно на складе (кол-во)",
-        "price": "Цена"
+        "dynamicCount": "Доступно на складе (кол-во)",
+        "count": "Доступно на складе (кол-во): {count}",
+        "price": "Цена",
+        "dynamicPrice": "Цена: {price}"
+
     },
     "errorMessage": {
         "orderCreation": "Ошибка создания заказа (причина: {reason})",

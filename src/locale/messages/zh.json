@@ -53,7 +53,9 @@
         "title": "标题",
         "description": "说明",
         "count": "计数",
-        "price": "价格"
+        "dynamicCount": "计数: {count}",
+        "price": "价格",
+        "dynamicPrice": "价格: {price}"
     },
     "errorMessage": {
         "orderCreation": "订单创建错误 (理由: {reason})",

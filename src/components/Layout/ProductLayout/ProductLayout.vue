@@ -3,7 +3,7 @@
 		<v-product-header :cartCountBadge="cartCountBadge"></v-product-header>
 
 		<v-main>
-			<v-container class="px-0" fluid>
+			<v-container class="px-0 py-0" fluid>
 				<slot></slot>
 			</v-container>
 		</v-main>
