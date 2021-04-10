@@ -58,14 +58,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+
+import { CartItem } from '@/models/cart-item';
+
 import VAddProductToCart from '../../ProductShowcaseIndex/ui/AddProductToCart.vue';
 
 export default Vue.extend({
 	name: 'CartList',
 	props: {
-		cartItems: Array,
-		isEditable: Boolean, // TODO
+		cartItems: Array as PropType<CartItem[]>,
+		isEditable: Boolean,
 	},
 	components: { VAddProductToCart },
 });

@@ -23,7 +23,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+
+import { CartItem } from '@/models/cart-item';
 
 import VOrderDetails from './OrderDetails.vue';
 
@@ -31,7 +33,7 @@ export default Vue.extend({
 	name: 'ReviewYourOrderStep',
 	components: { VOrderDetails },
 	props: {
-		cartItems: Array,
+		cartItems: Array as PropType<CartItem[]>,
 		address: Object,
 	},
 	methods: {

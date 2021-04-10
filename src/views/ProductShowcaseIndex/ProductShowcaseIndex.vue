@@ -48,7 +48,6 @@ import VAddProductToCart from './ui/AddProductToCart.vue';
 import { Product } from '@/models/product';
 import { productApi } from '@/api/product-api';
 
-// TODO: avoid any, model
 export default Vue.extend({
 	name: 'ProductShowcaseIndex',
 	components: { VAddProductToCart },

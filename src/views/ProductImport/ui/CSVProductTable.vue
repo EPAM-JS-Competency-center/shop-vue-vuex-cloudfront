@@ -54,7 +54,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+
+import { Product } from '@/models/product';
 
 const headers = [
 	{ text: 'Title', value: 'title' },
@@ -80,7 +82,7 @@ const getColor = (count: number) => {
 export default Vue.extend({
 	name: 'CSVProductTable',
 	props: {
-		products: Array,
+		products: Array as PropType<Product[]>,
 		isFetching: Boolean,
 	},
 	data() {

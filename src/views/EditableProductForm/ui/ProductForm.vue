@@ -63,7 +63,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
 import { Product } from '@/models/product';
 
@@ -73,7 +73,7 @@ const required = (v: string) => !!v || 'Field is required';
 
 export default Vue.extend({
 	props: {
-		product: Object,
+		product: Object as PropType<Product>,
 		disabled: Boolean,
 		isEditableMode: Boolean,
 	},
