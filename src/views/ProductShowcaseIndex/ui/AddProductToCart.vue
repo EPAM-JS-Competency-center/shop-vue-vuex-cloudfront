@@ -31,11 +31,14 @@ export default Vue.extend({
 	name: 'AddProductToCart',
 	props: {
 		maxCount: Number,
+		initialCount: Number,
 		isEditable: Boolean,
 	},
-	data: () => ({
-		productCount: 0,
-	}),
+	data() {
+		return {
+			productCount: this.initialCount || 0,
+		};
+	},
 	computed: {
 		isAddButtonDisabled(): boolean {
 			return this.productCount >= this.maxCount;

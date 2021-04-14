@@ -21,8 +21,17 @@
 							<p class="my-4 subtitle-1">
 								{{ product.description }}
 							</p>
-							<p>{{ product.price }}</p>
-							<p>{{ product.count }}</p>
+							<p>
+								{{
+									$t('products.dynamicPrice', {
+										price: formatPrice(product.price),
+									})
+								}}
+							</p>
+
+							<p>
+								{{ $t('products.dynamicCount', { count: product.count }) }}
+							</p>
 						</v-card-text>
 
 						<v-card-actions>
@@ -47,6 +56,7 @@ import VAddProductToCart from './ui/AddProductToCart.vue';
 
 import { Product } from '@/models/product';
 import { productApi } from '@/api/product-api';
+import { formatter as priceFormatter } from '@/libs/price';
 
 export default Vue.extend({
 	name: 'ProductShowcaseIndex',
@@ -62,6 +72,9 @@ export default Vue.extend({
 		this.fetchProducts();
 	},
 	methods: {
+		formatPrice(price: number) {
+			return priceFormatter.number(price);
+		},
 		fetchProducts() {
 			this.isFetching = true;
 

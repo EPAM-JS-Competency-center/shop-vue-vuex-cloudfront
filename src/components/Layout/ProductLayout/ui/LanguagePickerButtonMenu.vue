@@ -28,12 +28,14 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
+
 import { availableLangs } from '@/locale';
 
-export default {
+export default Vue.extend({
 	name: 'LanguagePickerButtonMenu',
 	data: () => ({
 		langs: availableLangs,
 	}),
-};
+});
 </script>

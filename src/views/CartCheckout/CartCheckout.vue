@@ -42,6 +42,7 @@
 
 					<v-stepper-content step="2">
 						<v-shipping-address-step
+							:initialFormValues="address"
 							@complete="handleShippingAddressStep2"
 							@back="goBackStep"
 						/>
@@ -69,6 +70,9 @@
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
 
+import { ordersApi } from '@/api/orders-api';
+import { CartItem } from '@/models/cart-item';
+
 import VReviewYourCartStep from './ui/ReviewYourCartStep.vue';
 import VShippingAddressStep from './ui/ShippingAddressStep.vue';
 import VReviewYourOrderStep from './ui/ReviewYourOrderStep.vue';
@@ -77,11 +81,18 @@ import VThisCartIsEmpty from './ui/ThisCartIsEmpty.vue';
 import VThankYouForOrder from './ui/ThankYouForOrder.vue';
 
 interface ShippingAddressFormValues {
-	firstname: string;
-	lastname: string;
+	firstName: string;
+	lastName: string;
 	address: string;
 	comment?: string;
 }
+
+const initialAddress = {
+	firstName: '',
+	lastName: '',
+	address: '',
+	comment: '',
+};
 
 export default Vue.extend({
 	name: 'CartCheckout',
@@ -93,21 +104,12 @@ export default Vue.extend({
 		VReviewYourCartStep,
 		VReviewYourOrderStep,
 	},
-	data() {
-		return {
-			address: {
-				firstName: 'FirstName',
-				lastName: 'LastName',
-				address: 'Moon',
-				comment: 'the best place',
-			},
-			stepIndex: 1,
-		};
-	},
+	data: () => ({
+		address: initialAddress,
+		stepIndex: 1,
+	}),
 	created() {
-		if (this.isCartEmpty) {
-			this.stepIndex = 0;
-		}
+		this.showEmptyCartIf(this.isCartEmpty);
 	},
 	computed: {
 		...mapGetters(['cartItems']),
@@ -115,7 +117,21 @@ export default Vue.extend({
 			return !this.cartItems.length;
 		},
 	},
+	watch: {
+		isCartEmpty(empty: boolean) {
+			this.showEmptyCartIf(empty);
+		},
+	},
 	methods: {
+		showEmptyCartIf(empty: boolean) {
+			if (empty) {
+				this.stepIndex = 0;
+			}
+		},
+		clearCart() {
+			this.address = initialAddress;
+			this.$store.dispatch('cart/clearCart');
+		},
 		goBackStep() {
 			this.stepIndex -= 1;
 		},
@@ -125,12 +141,41 @@ export default Vue.extend({
 		handleReviewCartStep1() {
 			this.goNextStep();
 		},
-		handleShippingAddressStep2(values: ShippingAddressFormValues) {
-			console.info(values);
+		handleShippingAddressStep2(v: ShippingAddressFormValues) {
+			this.address = {
+				firstName: v.firstName,
+				lastName: v.lastName,
+				address: v.address,
+				comment: v.comment || '',
+			};
+
 			this.goNextStep();
 		},
+		showErrorSnackbarMessage(reason: string) {
+			const message = this.$t('errorMessage.orderCreation', {
+				reason: reason,
+			});
+
+			this.$store.dispatch('snackbar/showErrorSnackber', { message });
+		},
 		handleOrderStep3() {
-			this.goNextStep();
+			const order = {
+				items: this.cartItems.map((cart: CartItem) => ({
+					productId: cart.product.id,
+					count: cart.count,
+				})),
+				address: this.address,
+			};
+
+			ordersApi
+				.create(order)
+				.then(() => {
+					this.clearCart();
+					this.goNextStep();
+				})
+				.catch(e => {
+					this.showErrorSnackbarMessage(e.message);
+				});
 		},
 	},
 });

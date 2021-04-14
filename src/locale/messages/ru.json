@@ -52,10 +52,14 @@
         "create": "Добавить новый продукт",
         "title": "Заголовок",
         "description": "Описание",
-        "count": "Доступно на складе (кол-во)",
-        "price": "Цена"
+        "dynamicCount": "Доступно на складе (кол-во)",
+        "count": "Доступно на складе (кол-во): {count}",
+        "price": "Цена",
+        "dynamicPrice": "Цена: {price}"
+
     },
     "errorMessage": {
+        "orderCreation": "Ошибка создания заказа (причина: {reason})",
         "cantUploadFile": "Извините, сервис временно недоступен (причина: {reason})",
         "cantProceedRequest": "Извините, не могу обработать запрос (причина: {reason})",
         "checkDevLogs": "Нажмите F12 Developer tools для доп.информации"

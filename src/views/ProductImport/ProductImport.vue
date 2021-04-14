@@ -58,9 +58,7 @@ export default Vue.extend({
 
 			productApi
 				.deleteProductById(id)
-				.then(() => {
-					return this.fetchProducts();
-				})
+				.then(() => this.fetchProducts())
 				.finally(() => {
 					this.isFetching = false;
 				});
