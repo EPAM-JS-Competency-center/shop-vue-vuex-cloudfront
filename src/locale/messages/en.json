@@ -54,10 +54,13 @@
         "title": "Title",
         "description": "Description",
         "count": "Count",
-        "price": "Price"
+        "dynamicCount": "Count: {count}",
+        "price": "Price",
+        "dynamicPrice": "Count: {price}"
     },
     "errorMessage": {
-        "cantUploadFile": "Sorry, I can't upload the attachment (reason: {reason})",
+        "orderCreation": "Order creation error (reason: {reason})",
+        "cantUploadFile": "Sorry, I can't upload the attachment ",
         "cantProceedRequest": "Sorry, I can't proceed this request (reason: {reason})",
         "checkDevLogs": "Press F12 Developer tools for details"
     }

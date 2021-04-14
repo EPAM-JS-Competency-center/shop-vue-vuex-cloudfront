@@ -14,7 +14,7 @@
 				<v-col cols="12" md="6">
 					<v-text-field
 						label="First Name"
-						v-model="firstname"
+						v-model="firstName"
 						:rules="commonValidationRule"
 					></v-text-field>
 				</v-col>
@@ -22,7 +22,7 @@
 				<v-col cols="12" md="6">
 					<v-text-field
 						label="Last Name"
-						v-model="lastname"
+						v-model="lastName"
 						:rules="commonValidationRule"
 					></v-text-field>
 				</v-col>
@@ -36,7 +36,13 @@
 				</v-col>
 
 				<v-col cols="12" md="12">
-					<v-text-field label="Comment" v-model="comment" solo></v-text-field>
+					<v-textarea
+						outlined
+						label="Comment"
+						v-model="comment"
+						rows="3"
+						clearable
+					/>
 				</v-col>
 
 				<v-col cols="12" class="d-flex justify-end">
@@ -52,25 +58,39 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
 const onlyString = (v: string) => typeof v === 'string';
 const required = (v: string) => !!v || 'Field is required';
 
 type VuetifyFormElement = Vue & { validate(): void };
 
+interface FormValues {
+	firstName: string;
+	lastName: string;
+	address: string;
+	comment?: string;
+}
+
 export default Vue.extend({
 	name: 'ShippingAddressStep',
-	data: () => ({
-		valid: true,
+	props: {
+		initialFormValues: Object as PropType<FormValues>,
+	},
+	data() {
+		const initial = this.initialFormValues;
 
-		firstname: '',
-		lastname: '',
-		address: '',
-		comment: '',
+		return {
+			valid: true,
 
-		commonValidationRule: [required, onlyString],
-	}),
+			firstName: initial.firstName,
+			lastName: initial.lastName,
+			address: initial.address,
+			comment: initial.comment,
+
+			commonValidationRule: [required, onlyString],
+		};
+	},
 	methods: {
 		triggerValidation(): void {
 			(this.$refs.form as VuetifyFormElement).validate();
@@ -83,15 +103,15 @@ export default Vue.extend({
 			}
 
 			this.$emit('complete', {
-				firstname: this.firstname,
-				lastname: this.lastname,
+				firstName: this.firstName,
+				lastName: this.lastName,
 				address: this.address,
 				comment: this.comment,
 			});
 		},
 		resetForm() {
-			this.firstname = '';
-			this.lastname = '';
+			this.firstName = '';
+			this.lastName = '';
 			this.address = '';
 			this.comment = '';
 		},
