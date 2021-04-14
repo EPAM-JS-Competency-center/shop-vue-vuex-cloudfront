@@ -50,7 +50,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+
+import { Order } from '@/models/order';
 
 const headers = [
 	{ text: 'From', value: 'from' },
@@ -73,8 +75,7 @@ const getColor = (count: number) => {
 	return 'red';
 };
 
-// TODO: avoid any
-const mapOrder = (order: any) => {
+const mapOrder = (order: Order) => {
 	const address = Object(order.address);
 
 	const firstName = address?.firstName;
@@ -99,7 +100,7 @@ const mapOrder = (order: any) => {
 export default Vue.extend({
 	name: 'OrdersTable',
 	props: {
-		orders: Array,
+		orders: Array as PropType<Order[]>,
 		isFetching: Boolean,
 	},
 	data() {

@@ -17,14 +17,14 @@
 
 		<template v-slot:item="{ item }">
 			<tr>
-				<td>
+				<td class="text-center">
 					{{ item.status }}
 				</td>
-				<td>
+				<td class="text-center">
 					{{ item.date }}
 				</td>
-				<td>
-					{{ item.status }}
+				<td class="text-center">
+					{{ item.comment }}
 				</td>
 			</tr>
 		</template>
@@ -32,14 +32,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
 import type { StatusHistory } from '@/models/order';
 
 export default Vue.extend({
 	name: 'StatusHistoryTable',
 	props: {
-		items: Array,
+		items: Array as PropType<StatusHistory[]>,
 	},
 	data() {
 		const toi18n = (v: string) => this.$t(v);
@@ -47,26 +47,30 @@ export default Vue.extend({
 		return {
 			isFetching: false,
 			headers: [
-				{ text: toi18n('common.status'), value: 'status' },
-				{ text: toi18n('common.dateAndTime'), value: 'timestamp' },
-				{ text: toi18n('common.comment'), value: 'comment' },
+				{
+					text: toi18n('common.status'),
+					value: 'status',
+					sortable: true,
+					align: 'center',
+				},
+				{
+					text: toi18n('common.dateAndTime'),
+					value: 'timestamp',
+					sortable: true,
+					align: 'center',
+				},
+				{ text: toi18n('common.comment'), value: 'comment', align: 'center' },
 			],
 		};
 	},
 	computed: {
 		mappedStatusHistoryItems() {
-			// @ts-expect-error todo
 			return this.items.map((item: StatusHistory, i: number) => ({
 				id: i,
 				date: new Date(item.timestamp),
 				status: item.status,
 				comment: item.comment,
 			}));
-		},
-	},
-	methods: {
-		deleteOrder(orderId: string) {
-			this.$emit('delete-order', orderId);
 		},
 	},
 });

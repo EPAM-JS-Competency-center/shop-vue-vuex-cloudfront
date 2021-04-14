@@ -58,7 +58,6 @@ import { Product } from '@/models/product';
 import { productApi } from '@/api/product-api';
 import { formatter as priceFormatter } from '@/libs/price';
 
-// TODO: avoid any, model
 export default Vue.extend({
 	name: 'ProductShowcaseIndex',
 	components: { VAddProductToCart },

@@ -20,14 +20,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+
+import { CartItem } from '@/models/cart-item';
 
 import VCartList from './CartList.vue';
 
 export default Vue.extend({
 	name: 'ReviewYourCartStep',
 	props: {
-		cartItems: Array,
+		cartItems: Array as PropType<CartItem[]>,
 	},
 	components: { VCartList },
 	methods: {

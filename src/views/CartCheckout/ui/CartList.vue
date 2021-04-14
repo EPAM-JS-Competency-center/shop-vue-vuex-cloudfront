@@ -81,7 +81,7 @@ export default Vue.extend({
 	name: 'CartList',
 	props: {
 		cartItems: Array as PropType<CartItem[]>,
-		isEditable: Boolean, // TODO
+		isEditable: Boolean,
 	},
 	computed: {
 		totalCartAmount() {
