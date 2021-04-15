@@ -1,7 +1,9 @@
 <template>
 	<div class="grey lighten-5">
 		<v-container>
-			<h5 class="text-h5 mb-3">Import Product CSV</h5>
+			<h5 class="text-h5 mb-3">
+				{{ $t('products.importCsvFile') }}
+			</h5>
 
 			<v-csv-file-uploader :url="uploaderS3Url"></v-csv-file-uploader>
 

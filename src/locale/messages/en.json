@@ -21,7 +21,8 @@
         "status": "Status",
         "changeStatus": "Change Status",
         "dateAndTime": "Date and Time",
-        "comment": "Comment"
+        "comment": "Comment",
+        "goToShopping": "Shop"
     },
     "orders": {
         "manage": "Manage orders",
@@ -31,7 +32,13 @@
         "review": "Review your order",
         "thankYou": "Thank you for your order.",
         "inProgress": "Your order is placed. Our manager will call you soon to clarify the details.",
+        "address": "Address",
+        "itemsCount": "Items count",
+        "from": "From",
+        "action": "Action",
+        "comment": "Comment:",
         "---": "---",
+        "status": "Status",
         "statusOpen": "Open",
         "statusApproved": "Approved",
         "statusConfirmed": "Confirmed",
@@ -43,10 +50,12 @@
     "cart": {
         "review": "Review your cart",
         "shippingAddress": "Shipping address",
-        "summary": "Cart Summary"
+        "summary": "Cart Summary",
+        "empty": "The cart is empty. Didn't you like anything in our shop?"
     },
     "products": {
         "manage": "Manage products",
+        "importCsvFile": "Import Product CSV",
         "edit": "Edit the product",
         "save": "Save product",
         "update": "Update product",
@@ -56,7 +65,8 @@
         "count": "Count",
         "dynamicCount": "Count: {count}",
         "price": "Price",
-        "dynamicPrice": "Count: {price}"
+        "action": "Action",
+        "dynamicPrice": "Price: {price}"
     },
     "errorMessage": {
         "orderCreation": "Order creation error (reason: {reason})",

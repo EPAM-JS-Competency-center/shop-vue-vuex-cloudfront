@@ -8,9 +8,11 @@
 		class="elevation-1"
 	>
 		<template v-slot:loading>
-			<v-progress-linear indeterminate color="indigo"></v-progress-linear>
+			<v-progress-linear indeterminate color="indigo" />
 
-			<p class="pa-2 v-data-table__empty-wrapper">Loading... Please wait</p>
+			<p class="pa-2 v-data-table__empty-wrapper">
+				{{ $t('app.loading') }}
+			</p>
 		</template>
 
 		<template v-slot:item="{ item }">
@@ -58,14 +60,6 @@ import Vue, { PropType } from 'vue';
 
 import { Product } from '@/models/product';
 
-const headers = [
-	{ text: 'Title', value: 'title' },
-	{ text: 'Description', value: 'description' },
-	{ text: 'Price', value: 'price' },
-	{ text: 'Count', value: 'count' },
-	{ text: 'Action', value: 'action' },
-];
-
 // TODO Enum
 const getColor = (count: number) => {
 	if (count > 100) {
@@ -86,8 +80,19 @@ export default Vue.extend({
 		isFetching: Boolean,
 	},
 	data() {
+		const headerTitle = (textId: string, value: string) => ({
+			text: this.$t(textId),
+			value,
+		});
+
 		return {
-			headers,
+			headers: [
+				headerTitle('products.title', 'title'),
+				headerTitle('products.description', 'description'),
+				headerTitle('products.price', 'price'),
+				headerTitle('products.count', 'count'),
+				headerTitle('products.action', 'action'),
+			],
 		};
 	},
 	methods: {

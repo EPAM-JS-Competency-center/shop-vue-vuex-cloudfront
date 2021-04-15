@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-
 import { mapGetters } from 'vuex';
 
 import { VProductLayout } from '@/components/Layout/ProductLayout';

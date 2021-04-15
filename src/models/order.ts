@@ -25,7 +25,7 @@ export interface StatusHistory {
 }
 
 export interface Order {
-	id: string;
+	id?: string;
 	address: Address;
 	items: unknown[]; // TODO: find exact
 	statusHistory: StatusHistory[];

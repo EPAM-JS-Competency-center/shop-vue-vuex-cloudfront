@@ -54,14 +54,6 @@ import Vue, { PropType } from 'vue';
 
 import { Order } from '@/models/order';
 
-const headers = [
-	{ text: 'From', value: 'from' },
-	{ text: 'Items count', value: 'itemsCount' },
-	{ text: 'Address', value: 'address' },
-	{ text: 'Status', value: 'status' },
-	{ text: 'Action', value: 'action' },
-];
-
 // TODO Enum
 const getColor = (count: number) => {
 	if (count > 100) {
@@ -104,8 +96,19 @@ export default Vue.extend({
 		isFetching: Boolean,
 	},
 	data() {
+		const headerTitle = (textId: string, value: string) => ({
+			text: this.$t(textId),
+			value,
+		});
+
 		return {
-			headers,
+			headers: [
+				headerTitle('orders.from', 'from'),
+				headerTitle('orders.itemsCount', 'itemsCount'),
+				headerTitle('orders.address', 'address'),
+				headerTitle('orders.status', 'status'),
+				headerTitle('orders.action', 'action'),
+			],
 		};
 	},
 	computed: {

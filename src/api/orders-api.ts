@@ -27,7 +27,6 @@ const fetchOrders = async (): Promise<Order[]> => {
 	*/
 };
 
-
 type ChangeOrderStatusParams = {
 	status: ORDER_STATUS;
 	comment: string;
@@ -37,11 +36,11 @@ const changeOrderStatus = (orderId: string, data: ChangeOrderStatusParams) => {
 	return axios
 		.put(`${API_PATHS.order}/order/${orderId}/status`, data)
 		.then(res => res.data);
-}
+};
 
 const create = (order: Omit<Order, 'statusHistory'>) => {
 	return axios.put(`${API_PATHS.order}/order`, order);
-}
+};
 
 export const ordersApi = {
 	changeOrderStatus,

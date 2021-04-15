@@ -123,7 +123,7 @@ export default Vue.extend({
 			this.$store.dispatch('snackbar/showErrorSnackber', { message });
 		},
 		submitStatusDetails(v: { status: ORDER_STATUS; comment: string }) {
-			const orderId = this.order.id;
+			const orderId = this.order.id as string;
 
 			this.isFetching = true;
 
