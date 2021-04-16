@@ -50,15 +50,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
-const headers = [
-	{ text: 'From', value: 'from' },
-	{ text: 'Items count', value: 'itemsCount' },
-	{ text: 'Address', value: 'address' },
-	{ text: 'Status', value: 'status' },
-	{ text: 'Action', value: 'action' },
-];
+import { Order } from '@/models/order';
 
 // TODO Enum
 const getColor = (count: number) => {
@@ -73,8 +67,7 @@ const getColor = (count: number) => {
 	return 'red';
 };
 
-// TODO: avoid any
-const mapOrder = (order: any) => {
+const mapOrder = (order: Order) => {
 	const address = Object(order.address);
 
 	const firstName = address?.firstName;
@@ -99,12 +92,23 @@ const mapOrder = (order: any) => {
 export default Vue.extend({
 	name: 'OrdersTable',
 	props: {
-		orders: Array,
+		orders: Array as PropType<Order[]>,
 		isFetching: Boolean,
 	},
 	data() {
+		const headerTitle = (textId: string, value: string) => ({
+			text: this.$t(textId),
+			value,
+		});
+
 		return {
-			headers,
+			headers: [
+				headerTitle('orders.from', 'from'),
+				headerTitle('orders.itemsCount', 'itemsCount'),
+				headerTitle('orders.address', 'address'),
+				headerTitle('orders.status', 'status'),
+				headerTitle('orders.action', 'action'),
+			],
 		};
 	},
 	computed: {

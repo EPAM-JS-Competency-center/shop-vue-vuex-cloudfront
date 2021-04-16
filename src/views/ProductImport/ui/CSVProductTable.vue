@@ -8,9 +8,11 @@
 		class="elevation-1"
 	>
 		<template v-slot:loading>
-			<v-progress-linear indeterminate color="indigo"></v-progress-linear>
+			<v-progress-linear indeterminate color="indigo" />
 
-			<p class="pa-2 v-data-table__empty-wrapper">Loading... Please wait</p>
+			<p class="pa-2 v-data-table__empty-wrapper">
+				{{ $t('app.loading') }}
+			</p>
 		</template>
 
 		<template v-slot:item="{ item }">
@@ -54,15 +56,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
-const headers = [
-	{ text: 'Title', value: 'title' },
-	{ text: 'Description', value: 'description' },
-	{ text: 'Price', value: 'price' },
-	{ text: 'Count', value: 'count' },
-	{ text: 'Action', value: 'action' },
-];
+import { Product } from '@/models/product';
 
 // TODO Enum
 const getColor = (count: number) => {
@@ -80,12 +76,23 @@ const getColor = (count: number) => {
 export default Vue.extend({
 	name: 'CSVProductTable',
 	props: {
-		products: Array,
+		products: Array as PropType<Product[]>,
 		isFetching: Boolean,
 	},
 	data() {
+		const headerTitle = (textId: string, value: string) => ({
+			text: this.$t(textId),
+			value,
+		});
+
 		return {
-			headers,
+			headers: [
+				headerTitle('products.title', 'title'),
+				headerTitle('products.description', 'description'),
+				headerTitle('products.price', 'price'),
+				headerTitle('products.count', 'count'),
+				headerTitle('products.action', 'action'),
+			],
 		};
 	},
 	methods: {

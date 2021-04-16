@@ -1,13 +1,15 @@
 <template>
 	<div id="app">
-		<v-app-router></v-app-router>
+		<v-app-router />
 
-		<v-snackbar-container></v-snackbar-container>
-		<v-app-version bottomRightCorner :value="appVersion"></v-app-version>
+		<v-snackbar-container />
+		<v-app-version bottomRightCorner :value="appVersion" />
 	</div>
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
+
 import { VAppVersion } from '@/libs/version';
 import { VSnackbarContainer } from '@/components/Snackbar';
 
@@ -15,12 +17,12 @@ import VAppRouter from './AppRouter.vue';
 
 const APP_VERSION = process.env.VUE_APP_VERSION;
 
-export default {
+export default Vue.extend({
 	components: { VAppVersion, VAppRouter, VSnackbarContainer },
 	data: () => ({
 		appVersion: APP_VERSION,
 	}),
-};
+});
 </script>
 
 <style>

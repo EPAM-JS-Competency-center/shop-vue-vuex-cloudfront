@@ -29,6 +29,9 @@ const cartModuleStore: Module<CartState, any> = {
 		setErrorMessage(state, msg: string) {
 			state.errorMessage = msg;
 		},
+		setCartItems(state, items: CartItem[]) {
+			state.cartItems = items;
+		},
 		// =
 		addProductToCart(state, product: Product) {
 			const cartItems = state.cartItems;

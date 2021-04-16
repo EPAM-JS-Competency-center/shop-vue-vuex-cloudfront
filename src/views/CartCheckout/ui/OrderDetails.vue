@@ -7,7 +7,9 @@
 		<v-list subheader>
 			<v-list-item class="px-0">
 				<v-list-item-content>
-					<v-list-item-title>Shipping address:</v-list-item-title>
+					<v-list-item-title>
+						{{ $t('cart.shippingAddress') }}
+					</v-list-item-title>
 				</v-list-item-content>
 
 				<v-list-item-action>
@@ -21,7 +23,9 @@
 
 			<v-list-item class="px-0">
 				<v-list-item-content>
-					<p class="h6 mb-4">Comment:</p>
+					<p class="h6 mb-4">
+						{{ $t('orders.comment') }}
+					</p>
 					<p>
 						{{ address.comment }}
 					</p>
@@ -32,15 +36,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
+
+import { CartItem } from '@/models/cart-item';
+import { Address } from '@/models/address';
 
 import VCartList from './CartList.vue';
 
 export default Vue.extend({
 	name: 'OrderDetails',
 	props: {
-		cartItems: Array,
-		address: Object,
+		cartItems: Array as PropType<CartItem[]>,
+		address: Object as PropType<Address>,
 	},
 	components: { VCartList },
 });

@@ -1,7 +1,12 @@
 <template>
-	<div class="d-flex justify-center align-center py-12">
+	<div class="d-flex justify-center flex-column align-center py-12">
 		<p class="text-h6">
-			The cart is empty. Didn't you like anything in our shop?
+			{{ $t('cart.empty') }}
 		</p>
+
+		<v-btn to="/" color="indigo" outlined text>
+			<v-icon class="mr-2" right dark>shopping_cart</v-icon>
+			{{ $t('common.goToShopping') }}
+		</v-btn>
 	</div>
 </template>

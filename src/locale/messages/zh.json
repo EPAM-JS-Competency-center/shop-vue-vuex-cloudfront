@@ -21,7 +21,8 @@
         "status": "状况",
         "changeStatus": "更改状态",
         "dateAndTime": "日期和时间",
-        "comment": "评论"
+        "comment": "评论",
+        "goToShopping": "购物"
     },
     "orders": {
         "manage": "订单管理",
@@ -30,7 +31,13 @@
         "review": "查看您的订单",
         "thankYou": "谢谢你的订单。",
         "inProgress": "您的订单已经下达。我们的经理会尽快打电话给您，以澄清细节。",
+        "address": "地址",
+        "itemsCount": "项目数",
+        "from": "来自",
+        "action": "行动",
+        "comment": "评论:",
         "---": "---",
+        "status": "状况",
         "statusOpen": "开放式",
         "statusApproved": "核定人数",
         "statusConfirmed": "已确认",
@@ -42,10 +49,12 @@
     "cart": {
         "review": "查看您的购物车",
         "shippingAddress": "送货地址",
-        "summary": "购物车摘要"
+        "summary": "购物车摘要",
+        "empty": "购物车是空的。你不喜欢我们店里的东西吗？"
     },
     "products": {
         "manage": "产品管理",
+        "importCsvFile": "导入产品CSV",
         "edit": "编辑产品",
         "save": "保存产品",
         "create": "创建新产品",
@@ -53,9 +62,13 @@
         "title": "标题",
         "description": "说明",
         "count": "计数",
-        "price": "价格"
+        "dynamicCount": "计数: {count}",
+        "price": "价格",
+        "dynamicPrice": "价格: {price}",
+        "action": "行动"
     },
     "errorMessage": {
+        "orderCreation": "订单创建错误 (理由: {reason})",
         "cantUploadFile": "对不起，服务暂时无法使用。 (理由: {reason})",
         "cantProceedRequest": "抱歉，我无法处理请求（原因：{reason})",
         "checkDevLogs": "点击 F12 Developer tools 更多信息"
