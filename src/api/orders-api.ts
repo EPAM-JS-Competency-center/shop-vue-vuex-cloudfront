@@ -19,12 +19,14 @@ const fetchOrderById = (id: string) => {
 };
 
 const fetchOrders = async (): Promise<Order[]> => {
-	// @ts-expect-error todo
-	return orderList;
-	/* TODO: uncomment when time comes
-		return axios.get(`${API_PATHS.order}/order`)
-		.then(res => res.data);
-	*/
+	return axios
+		.get(`${API_PATHS.order}/order`)
+		.then(res => res.data)
+		.catch(e => {
+			console.error(e);
+			// << !!! mocks if any error !!!
+			return orderList;
+		});
 };
 
 type ChangeOrderStatusParams = {

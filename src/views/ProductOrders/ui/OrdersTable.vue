@@ -6,6 +6,7 @@
 		:loading="isFetching"
 		item-key="id"
 		class="elevation-1"
+		data-testId="orders-table"
 	>
 		<template v-slot:loading>
 			<v-progress-linear indeterminate color="indigo"></v-progress-linear>
@@ -35,12 +36,19 @@
 						color="primary"
 						small
 						exact
+						data-testid="manage-order"
 						:to="`/admin/order/${item.id}`"
 					>
 						{{ $t('common.manage') }}
 					</v-btn>
 
-					<v-btn class="ml-1" color="error" @click="deleteOrder(item.id)" small>
+					<v-btn
+						class="ml-1"
+						color="error"
+						data-testid="delete-order"
+						@click="deleteOrder(item.id)"
+						small
+					>
 						{{ $t('common.delete') }}
 					</v-btn>
 				</td>

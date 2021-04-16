@@ -14,6 +14,7 @@
 			<v-col cols="12" md="12">
 				<v-text-field
 					:label="$t('products.title')"
+					name="title"
 					v-model="title"
 					:rules="validationRules"
 				></v-text-field>
@@ -22,6 +23,7 @@
 			<v-col cols="12" md="12">
 				<v-text-field
 					:label="$t('products.description')"
+					name="description"
 					v-model="description"
 					:rules="validationRules"
 				></v-text-field>
@@ -31,6 +33,7 @@
 				<v-text-field
 					type="number"
 					:label="$t('products.price')"
+					name="price"
 					v-model="price"
 					:rules="validationRules"
 				></v-text-field>
@@ -39,6 +42,7 @@
 			<v-col cols="12" md="6">
 				<v-text-field
 					type="number"
+					name="count"
 					:label="$t('products.count')"
 					v-model="count"
 					:rules="validationRules"

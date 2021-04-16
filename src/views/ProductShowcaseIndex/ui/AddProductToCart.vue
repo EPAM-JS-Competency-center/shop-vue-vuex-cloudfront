@@ -1,15 +1,26 @@
 <template>
 	<div v-if="productCount < 1">
-		<v-btn color="pink" icon large @click="showCounters()">
+		<v-btn
+			color="pink"
+			icon
+			large
+			test-id="add-product-button"
+			@click="showCounters()"
+		>
 			<v-icon>shopping_cart</v-icon>
 		</v-btn>
 	</div>
 	<div v-else>
-		<v-btn icon large @click="decrementProduct()">
+		<v-btn
+			icon
+			large
+			test-id="decrement-product-count"
+			@click="decrementProduct()"
+		>
 			<v-icon>remove</v-icon>
 		</v-btn>
 
-		<span class="px-3">
+		<span test-id="product-count" class="px-3">
 			{{ productCount }}
 		</span>
 
@@ -17,6 +28,7 @@
 			:disabled="isAddButtonDisabled"
 			icon
 			large
+			test-id="increment-product-count"
 			@click="incrementProduct()"
 		>
 			<v-icon>add</v-icon>
