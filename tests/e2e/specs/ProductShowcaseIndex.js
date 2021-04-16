@@ -1,4 +1,3 @@
-// https://docs.cypress.io/api/introduction/api.html
 const products = require('../fixtures/product-api.json');
 
 describe('view: ProductShowcaseIndex', () => {
