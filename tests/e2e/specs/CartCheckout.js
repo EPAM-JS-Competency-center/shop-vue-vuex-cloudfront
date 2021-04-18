@@ -1,10 +1,9 @@
 const products = require('../fixtures/product-api.json');
 
-const PRODUCT_PATH = '/admin/product-form';
 
-describe('view: EditableProductForm', () => {
+describe('view: CartCheckout', () => {
     beforeEach(() => {
-        cy.visit(PRODUCT_PATH);
+        cy.visit('/cart');
     });
 
     it('Layout: should be present', () => {
@@ -62,57 +61,13 @@ describe('view: EditableProductForm', () => {
 
     it('Page: should contain correct h4 title', () => {
         cy.get('main h4')
-            .should('contain', 'Create new product');
+            .should('contain', 'Checkout');
     });
 
-    it('Create product: fill form & submit', () => {
-        cy.get(`input[name="title"]`)
-            .type("Product Name");
+    it('Scenario: pass every step one-by-one', () => {
+        cy.get('[data-test-id="shop-button"]')
+            .click();
 
-        cy.get(`input[name="description"]`)
-            .type("Product Description");
-
-        cy.get(`input[name="price"]`)
-            .type("1000");
-
-        cy.get(`input[name="count"]`)
-            .type("12345");
-
-        cy.intercept('PUT', '/dev/product', (req) => {
-            expect(req.body).to.deep.equal({
-                count: "012345",
-                description: "Product Description",
-                price: "01000",
-                title: "Product Name",
-            });
-        })
-
-        cy.get('button[type="submit"]').click();
     });
 
-    it('Update product: should prefill form', () => {
-        cy.intercept('GET', '/dev/product/100', ({
-            title: "Product Title",
-            description: "Product Description",
-            count: "12345",
-            price: "1111",
-        }));
-
-        cy.visit(`${PRODUCT_PATH}/100`);
-
-        cy.get('main h4')
-            .should('contain', 'Edit a product');
-
-        cy.get(`input[name="title"]`)
-            .should('have.value', 'Product Title');
-
-        cy.get(`input[name="description"]`)
-            .should('have.value', 'Product Description');
-
-        cy.get(`input[name="price"]`)
-            .should('have.value', '1111');
-
-        cy.get(`input[name="count"]`)
-            .should('have.value', '12345');
-    });
 });

@@ -18,19 +18,19 @@ describe('view: ProductImport', () => {
     });
 
     it('Header: should contain account-button', () => {
-        cy.get('header [test-id="account-button"]');
+        cy.get('header [data-test-id="account-button"]');
     });
 
     it('Header: should contain cart link', () => {
-        cy.get('header a[test-id="cart-link"]')
+        cy.get('header a[data-test-id="cart-link"]')
             .should('have.attr', 'href', '/cart');
     });
 
     it('Header: should contain account menu (3 items)', () => {
-        cy.get('header [test-id="account-button"]')
+        cy.get('header [data-test-id="account-button"]')
             .click();
 
-        cy.get('[test-id="account-menu"] > a')
+        cy.get('[data-test-id="account-menu"] > a')
             .should('have.length', 3);
     });
 

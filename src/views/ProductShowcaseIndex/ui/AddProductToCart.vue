@@ -4,7 +4,7 @@
 			color="pink"
 			icon
 			large
-			test-id="add-product-button"
+			data-test-id="add-product-button"
 			@click="showCounters()"
 		>
 			<v-icon>shopping_cart</v-icon>
@@ -14,13 +14,13 @@
 		<v-btn
 			icon
 			large
-			test-id="decrement-product-count"
+			data-test-id="decrement-product-count"
 			@click="decrementProduct()"
 		>
 			<v-icon>remove</v-icon>
 		</v-btn>
 
-		<span test-id="product-count" class="px-3">
+		<span data-test-id="product-count" class="px-3">
 			{{ productCount }}
 		</span>
 
@@ -28,7 +28,7 @@
 			:disabled="isAddButtonDisabled"
 			icon
 			large
-			test-id="increment-product-count"
+			data-test-id="increment-product-count"
 			@click="incrementProduct()"
 		>
 			<v-icon>add</v-icon>

@@ -24,23 +24,23 @@ describe('view: ProductShowcaseIndex', () => {
     it('Header: should contain account-button', () => {
         cy.intercept('/dev/product/available/', []);
 
-        cy.get('header [test-id="account-button"]');
+        cy.get('header [data-test-id="account-button"]');
     });
 
     it('Header: should contain cart link', () => {
         cy.intercept('/dev/product/available/', []);
 
-        cy.get('header a[test-id="cart-link"]')
+        cy.get('header a[data-test-id="cart-link"]')
             .should('have.attr', 'href', '/cart');
     });
 
     it('Header: should contain account menu (3 items)', () => {
         cy.intercept('/dev/product/available/', []);
 
-        cy.get('header [test-id="account-button"]')
+        cy.get('header [data-test-id="account-button"]')
             .click();
 
-        cy.get('[test-id="account-menu"] > a')
+        cy.get('[data-test-id="account-menu"] > a')
             .should('have.length', 3);
     });
 
@@ -80,7 +80,7 @@ describe('view: ProductShowcaseIndex', () => {
 
         cy.wait('@getAvailableProducts');
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .should('have.length', 8);
     });
 
@@ -90,7 +90,7 @@ describe('view: ProductShowcaseIndex', () => {
 
         cy.wait('@getAvailableProducts');
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
             .should('contain', 'Price: $10.00')
             .and("contain", 'Count: 6')
@@ -105,14 +105,14 @@ describe('view: ProductShowcaseIndex', () => {
 
         cy.wait('@getAvailableProducts');
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="add-product-button"]')
+            .find('[data-test-id="add-product-button"]')
             .click();
 
-        cy.get('[test-id="decrement-product-count"');
+        cy.get('[data-test-id="decrement-product-count"');
 
-        cy.get('[test-id="increment-product-count"');
+        cy.get('[data-test-id="increment-product-count"');
     });
 
     it('Product cart: can increment product', () => {
@@ -123,22 +123,22 @@ describe('view: ProductShowcaseIndex', () => {
 
         cy.wait('@getAvailableProducts');
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="add-product-button"]')
+            .find('[data-test-id="add-product-button"]')
             .click();
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="product-count"]')
+            .find('[data-test-id="product-count"]')
             .should('contain', '1');
 
-        cy.get('[test-id="increment-product-count"')
+        cy.get('[data-test-id="increment-product-count"')
             .click()
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="product-count"]')
+            .find('[data-test-id="product-count"]')
             .should('contain', '2');
     });
 
@@ -150,36 +150,36 @@ describe('view: ProductShowcaseIndex', () => {
 
         cy.wait('@getAvailableProducts');
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="add-product-button"]')
+            .find('[data-test-id="add-product-button"]')
             .click();
 
         // 1
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="product-count"]')
+            .find('[data-test-id="product-count"]')
             .should('contain', '1');
 
         // 2
-        cy.get('[test-id="increment-product-count"')
+        cy.get('[data-test-id="increment-product-count"')
             .click()
 
         // 3
-        cy.get('[test-id="increment-product-count"')
+        cy.get('[data-test-id="increment-product-count"')
             .click()
 
         // 4
-        cy.get('[test-id="increment-product-count"')
+        cy.get('[data-test-id="increment-product-count"')
             .click()
 
         // 3
-        cy.get('[test-id="decrement-product-count"')
+        cy.get('[data-test-id="decrement-product-count"')
             .click()
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="product-count"]')
+            .find('[data-test-id="product-count"]')
             .should('contain', '3');
     });
 
@@ -191,22 +191,22 @@ describe('view: ProductShowcaseIndex', () => {
 
         cy.wait('@getAvailableProducts');
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(1)
-            .find('[test-id="add-product-button"]')
+            .find('[data-test-id="add-product-button"]')
             .click();
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(0)
-            .find('[test-id="add-product-button"]')
+            .find('[data-test-id="add-product-button"]')
             .click();
 
-        cy.get('[test-id="product-card"]')
+        cy.get('[data-test-id="product-card"]')
             .eq(4)
-            .find('[test-id="add-product-button"]')
+            .find('[data-test-id="add-product-button"]')
             .click();
 
-        cy.get('header [test-id="cart-link"]')
+        cy.get('header [data-test-id="cart-link"]')
             .should('contain', 3);
     });
 });

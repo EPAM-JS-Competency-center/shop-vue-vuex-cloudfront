@@ -10,7 +10,7 @@
 
 		<v-account-btn-menu></v-account-btn-menu>
 
-		<v-btn test-id="cart-link" to="/cart" icon large>
+		<v-btn data-test-id="cart-link" to="/cart" icon large>
 			<v-badge
 				color="pink"
 				:content="cartCountBadge"

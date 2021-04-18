@@ -10,7 +10,7 @@
 					v-for="(product, index) in products"
 					:key="product.id"
 				>
-					<v-card class="pa-2" test-id="product-card" outlined tile>
+					<v-card class="pa-2" data-test-id="product-card" outlined tile>
 						<v-img
 							height="250"
 							:src="`https://source.unsplash.com/random?sig=${index}`"
