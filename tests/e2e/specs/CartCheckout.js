@@ -1,5 +1,16 @@
 const products = require('../fixtures/product-api.json');
 
+const successCheckout = {
+    "items": [
+        { "productId": "7567ec4b-b10c-48c5-9345-fc73c48a80a0", "count": 1 }
+    ],
+    "address": {
+        "firstName": "Vasiliy",
+        "lastName": "Pupkin",
+        "address": "Nevskiy st.",
+        "comment": "my first purchase"
+    }
+};
 
 describe('view: CartCheckout', () => {
     beforeEach(() => {
@@ -68,6 +79,47 @@ describe('view: CartCheckout', () => {
         cy.get('[data-test-id="shop-button"]')
             .click();
 
+        cy.intercept('PUT', '/dev/profile/cart/', []);
+
+        cy.intercept('/dev/product/available/', products)
+            .as('getAvailableProducts');
+
+        cy.wait('@getAvailableProducts');
+
+        cy.get('[data-test-id="product-card"]')
+            .eq(1)
+            .find('[data-test-id="add-product-button"]')
+            .click();
+
+        // to /cart
+        cy.go('back');
+
+        cy.get('[data-test-id="to-2-step-button"]')
+            .click();
+
+        // fill shipping address form
+        cy.get(`input[name="firstName"]`)
+            .type("Vasiliy");
+
+        cy.get(`input[name="lastName"]`)
+            .type("Pupkin");
+
+        cy.get(`input[name="address"]`)
+            .type("Nevskiy st.");
+
+        cy.get(`textarea[name="comment"]`)
+            .type("my first purchase");
+
+        cy.get('[data-test-id="to-3-step-button"]')
+            .click();
+
+        // review order step, place order
+        cy.get('[data-test-id="place-order-button"]')
+            .click();
+        //
+        cy.intercept('PUT', '/dev/order', (req) => {
+            expect(req.body).to.deep.equal(successCheckout);
+        })
     });
 
 });

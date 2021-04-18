@@ -13,10 +13,10 @@ Cypress.Commands.add('shouldContainFooter', ({ text }) => {
 });
 
 Cypress.Commands.add('shouldContainAccountMenuLink', ({ index, href, menuLinkName }) => {
-    cy.get('header [test-id="account-button"]')
+    cy.get('header [data-test-id="account-button"]')
         .click();
 
-    cy.get(`[test-id="account-menu"] > a:nth-child(${index})`)
+    cy.get(`[data-test-id="account-menu"] > a:nth-child(${index})`)
         .should('have.attr', 'href', href)
         .and('contain', menuLinkName);
 });

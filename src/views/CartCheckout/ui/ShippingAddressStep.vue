@@ -13,6 +13,7 @@
 			<v-row>
 				<v-col cols="12" md="6">
 					<v-text-field
+						name="firstName"
 						label="First Name"
 						v-model="firstName"
 						:rules="commonValidationRule"
@@ -21,6 +22,7 @@
 
 				<v-col cols="12" md="6">
 					<v-text-field
+						name="lastName"
 						label="Last Name"
 						v-model="lastName"
 						:rules="commonValidationRule"
@@ -29,6 +31,7 @@
 
 				<v-col cols="12" md="12">
 					<v-text-field
+						name="address"
 						label="Shipping Address"
 						v-model="address"
 						:rules="commonValidationRule"
@@ -38,6 +41,7 @@
 				<v-col cols="12" md="12">
 					<v-textarea
 						outlined
+						name="comment"
 						label="Comment"
 						v-model="comment"
 						rows="3"
@@ -48,7 +52,12 @@
 				<v-col cols="12" class="d-flex justify-end">
 					<v-btn class="mr-1" type="reset"> Clear </v-btn>
 
-					<v-btn class="ml-1" type="submit" color="primary">
+					<v-btn
+						class="ml-1"
+						type="submit"
+						data-test-id="to-3-step-button"
+						color="primary"
+					>
 						{{ $t('common.next') }}
 					</v-btn>
 				</v-col>

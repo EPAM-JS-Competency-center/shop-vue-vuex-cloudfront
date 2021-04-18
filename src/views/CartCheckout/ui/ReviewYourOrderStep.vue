@@ -12,6 +12,7 @@
 
 			<v-btn
 				class="ml-1"
+				data-test-id="place-order-button"
 				type="button"
 				color="primary"
 				@click="handleStepSubmit"

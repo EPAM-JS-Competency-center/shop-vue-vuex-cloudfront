@@ -10,6 +10,7 @@
 			<v-btn
 				class="ml-1"
 				type="button"
+				data-test-id="to-2-step-button"
 				color="primary"
 				@click="handleStepSubmit"
 			>
