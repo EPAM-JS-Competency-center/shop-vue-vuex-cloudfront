@@ -70,7 +70,7 @@ import { formatter as priceFormatter } from '@/libs/price';
 import { CartItem } from '@/models/cart-item';
 import { Product } from '@/models/product';
 
-import VAddProductToCart from '../../ProductShowcaseIndex/ui/AddProductToCart.vue';
+import { VAddProductToCart } from '@/components/AddProductToCart';
 import VCatchAttention from '@/components/Animation/CatchAttention.vue';
 
 const sum = (total: number, item: CartItem) => {

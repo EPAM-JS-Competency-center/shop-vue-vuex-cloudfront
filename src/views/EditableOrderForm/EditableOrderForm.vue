@@ -49,7 +49,8 @@ import { Product } from '@/models/product';
 import { ordersApi } from '@/api/orders-api';
 import { productApi } from '@/api/product-api';
 
-import VOrderDetails from '../CartCheckout/ui/OrderDetails.vue';
+import VOrderDetails from '@/components/CheckoutStepper/ui/OrderDetails.vue';
+
 import VStatusHistoryTable from './ui/StatusHistoryTable.vue';
 import VChangeStatusForm from './ui/ChangeStatusForm.vue';
 

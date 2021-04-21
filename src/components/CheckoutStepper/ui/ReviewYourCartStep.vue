@@ -25,7 +25,7 @@ import Vue, { PropType } from 'vue';
 
 import { CartItem } from '@/models/cart-item';
 
-import VCartList from './CartList.vue';
+import { VCartList } from '@/components/CartList';
 
 export default Vue.extend({
 	name: 'ReviewYourCartStep',
