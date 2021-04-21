@@ -7,13 +7,14 @@
 				large
 				v-bind="attrs"
 				v-on="on"
+				data-test-id="account-button"
 				aria-haspopup="true"
 			>
 				<v-icon>account_circle</v-icon>
 			</v-btn>
 		</template>
 
-		<v-list>
+		<v-list data-test-id="account-menu">
 			<v-list-item to="/admin/orders">
 				<v-list-item-title>
 					{{ $t('orders.manage') }}

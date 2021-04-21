@@ -6,29 +6,31 @@ import { Product } from '@/models/product';
 import productList from './productList.json';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
-	return productList;
-	/* TODO: uncomment when time comes
-  return axios.get(`${API_PATHS.bff}/product/available/`)
-    .then(res => res.data);
-  */
+	return axios
+		.get(`${API_PATHS.bff}/product/available/`)
+		.then(res => res.data)
+		.catch(e => {
+			console.error(e);
+			// << !!! mocks if any error !!!
+			return productList;
+		});
 };
 
 const fetchProducts = async (): Promise<Product[]> => {
-	return productList;
-	/* TODO: uncomment when time comes
-  axios.get(`${API_PATHS.bff}/product`)
-  .then(res => res.data);
-  */
+	return axios
+		.get(`${API_PATHS.bff}/product`)
+		.then(res => res.data)
+		.catch(e => {
+			console.error(e);
+			// << !!! mocks if any error !!!
+			return productList;
+		});
 };
 
 const fetchProductById = async (id: string) => {
 	console.info(`GET fetchProductById: ${id}`);
 
-	return productList[1];
-	/* TODO: uncomment when time comes
-  axios.get(`${API_PATHS.bff}/product/${id}`)
-  .then(res => res.data);
-  */
+	return axios.get(`${API_PATHS.bff}/product/${id}`).then(res => res.data);
 };
 
 const deleteProductById = (id: string) => {

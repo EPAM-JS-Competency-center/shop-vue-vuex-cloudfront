@@ -56,7 +56,7 @@
     "products": {
         "manage": "Manage products",
         "importCsvFile": "Import Product CSV",
-        "edit": "Edit the product",
+        "edit": "Edit a product",
         "save": "Save product",
         "update": "Update product",
         "create": "Create new product",

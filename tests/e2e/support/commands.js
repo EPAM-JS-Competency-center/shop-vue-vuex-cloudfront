@@ -1,25 +1,22 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('shouldContainBaseLayout', ({ title }) => {
+    cy.get('header')
+        .should('contain', title);
+
+    cy.get('main');
+
+    cy.get('footer');
+});
+
+Cypress.Commands.add('shouldContainFooter', ({ text }) => {
+    cy.get('footer')
+        .should('contain', text);
+});
+
+Cypress.Commands.add('shouldContainAccountMenuLink', ({ index, href, menuLinkName }) => {
+    cy.get('header [data-test-id="account-button"]')
+        .click();
+
+    cy.get(`[data-test-id="account-menu"] > a:nth-child(${index})`)
+        .should('have.attr', 'href', href)
+        .and('contain', menuLinkName);
+});

@@ -10,6 +10,7 @@
 			<v-btn
 				class="ml-1"
 				type="button"
+				data-test-id="to-2-step-button"
 				color="primary"
 				@click="handleStepSubmit"
 			>
@@ -24,7 +25,7 @@ import Vue, { PropType } from 'vue';
 
 import { CartItem } from '@/models/cart-item';
 
-import VCartList from './CartList.vue';
+import { VCartList } from '@/components/CartList';
 
 export default Vue.extend({
 	name: 'ReviewYourCartStep',

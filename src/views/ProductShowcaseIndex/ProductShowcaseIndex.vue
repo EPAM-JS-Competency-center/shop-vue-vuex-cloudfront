@@ -10,7 +10,7 @@
 					v-for="(product, index) in products"
 					:key="product.id"
 				>
-					<v-card class="pa-2" outlined tile>
+					<v-card class="pa-2" data-test-id="product-card" outlined tile>
 						<v-img
 							height="250"
 							:src="`https://source.unsplash.com/random?sig=${index}`"
@@ -52,7 +52,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import VAddProductToCart from './ui/AddProductToCart.vue';
+import { VAddProductToCart } from '@/components/AddProductToCart';
 
 import { Product } from '@/models/product';
 import { productApi } from '@/api/product-api';

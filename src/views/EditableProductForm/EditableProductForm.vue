@@ -1,5 +1,5 @@
 <template>
-	<div class="grey lighten-5">
+	<v-container class="grey lighten-5 py-2" fluid>
 		<v-progress-linear
 			indeterminate
 			color="indigo"
@@ -7,14 +7,16 @@
 		>
 		</v-progress-linear>
 
-		<v-container class="white">
-			<v-product-form
-				:disabled="isFetching"
-				:product="product"
-				:isEditableMode="isEditableMode"
-				@submit="handleProductSubmit"
-			></v-product-form>
-		</v-container>
+		<v-row class="my-3" justify="center">
+			<v-col class="white elevation-1" cols="12" md="6" xs="10">
+				<v-product-form
+					:disabled="isFetching"
+					:product="product"
+					:isEditableMode="isEditableMode"
+					@submit="handleProductSubmit"
+				/>
+			</v-col>
+		</v-row>
 
 		<v-snackbar v-model="showErrorSnackbar" timeout="7000">
 			<p class="my-0 font-weight-medium" v-html="errorMessage"></p>
@@ -34,7 +36,7 @@
 				</v-btn>
 			</template>
 		</v-snackbar>
-	</div>
+	</v-container>
 </template>
 
 <style scoped>

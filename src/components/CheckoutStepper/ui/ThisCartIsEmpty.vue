@@ -4,7 +4,7 @@
 			{{ $t('cart.empty') }}
 		</p>
 
-		<v-btn to="/" color="indigo" outlined text>
+		<v-btn to="/" color="indigo" data-test-id="shop-button" outlined text>
 			<v-icon class="mr-2" right dark>shopping_cart</v-icon>
 			{{ $t('common.goToShopping') }}
 		</v-btn>
