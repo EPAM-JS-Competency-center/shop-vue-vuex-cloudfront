@@ -1,5 +1,6 @@
 <template>
 	<v-form
+		class="px-4"
 		:disabled="disabled"
 		ref="form"
 		v-model="valid"
