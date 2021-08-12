@@ -31,6 +31,7 @@ plugins:
 custom:
   client:
     bucketName: my-shop-vue
+    distributionFolder: ./build
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
