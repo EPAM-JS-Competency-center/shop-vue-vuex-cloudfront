@@ -22,9 +22,15 @@ frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   lambdaHashingVersion: 20201221
 
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: my-shop-vue
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -57,9 +63,9 @@ provider:
 #    - include-me.js
 #    - include-me-dir/**
 
-functions:
-  hello:
-    handler: handler.hello
+#functions:
+#  hello:
+#    handler: handler.hello
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
