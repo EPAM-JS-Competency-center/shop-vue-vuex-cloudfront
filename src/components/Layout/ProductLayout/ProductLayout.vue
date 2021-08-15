@@ -25,7 +25,7 @@
 				<a :href="$t('app.authorLink')" target="__blank">KSGitUser</a>
 				project of <a :href="$t('app.schoolLink')">rs.school</a>
 			</p>
-			<p>v.2 deployed wih serverless</p>
+			<p>v.2.1 deployed with cloudFront</p>
 		</v-footer>
 	</v-app>
 </template>
