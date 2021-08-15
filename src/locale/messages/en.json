@@ -1,7 +1,9 @@
 {
     "app": {
-        "title": "My store!",
-        "loading": "Loading... Please wait"
+        "title": "Art shop!",
+        "loading": "Loading... Please wait",
+        "authorLink": "https://github.com/KSGitUser",
+        "schoolLink": "https://rs.school/"
     },
     "common": {
         "manage": "Manage",

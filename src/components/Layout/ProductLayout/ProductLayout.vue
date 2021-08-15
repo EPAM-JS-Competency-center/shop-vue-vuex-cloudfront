@@ -20,6 +20,11 @@
 				{{ $t('app.title') }}
 				{{ currentDate }}
 			</p>
+			<p>
+				Autor:
+				<a :href="$t('app.authorLink')" target="__blank">KSGitUser</a>
+				project of <a :href="$t('app.schoolLink')">rs.school</a>
+			</p>
 		</v-footer>
 	</v-app>
 </template>
