@@ -1,4 +1,4 @@
-service: my-shop-vue
+service: my-shop-vue-cloudfront
 frameworkVersion: '2'
 
 provider:
@@ -13,7 +13,7 @@ plugins:
 
 custom:
   client:
-    bucketName: my-shop-vue
+    bucketName: my-shop-vue-cloudfront
     distributionFolder: ./build
   # Serverless-single-page-app-plugin configuration
   s3LocalPath: ${self:custom.client.distributionFolder}/
