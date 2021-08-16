@@ -1,6 +1,6 @@
 {
     "app": {
-        "title": "My store!",
+        "title": "My store! (MANUAL DEPLOY)",
         "loading": "Loading... Please wait"
     },
     "common": {
