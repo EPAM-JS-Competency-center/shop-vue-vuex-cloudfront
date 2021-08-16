@@ -18,7 +18,7 @@ plugins:
 
 custom:
   client:
-    bucketName: rs-school-vue-appliation
+    bucketName: rs-school-vue-appliation-second
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 

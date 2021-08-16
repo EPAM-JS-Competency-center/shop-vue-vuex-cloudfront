@@ -34,7 +34,8 @@
     "vue-i18n": "^8.24.2",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.8",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "serverless-single-page-app-plugin": ".serverless_plugins/serverless-single-page-app-plugin.js"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",
