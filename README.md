@@ -22,3 +22,4 @@ npm run build
 * [CloudFront distribution](https://d2l47bqwytsd6t.cloudfront.net)
 
 ### Link to automatic deploy
+* [Automatic deploy](https://my-shop-vue-automatic-deploy.s3-eu-west-1.amazonaws.com/index.html)
