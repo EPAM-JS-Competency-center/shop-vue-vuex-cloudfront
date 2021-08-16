@@ -1,3 +1,6 @@
+Link to S3-website: http://rs-school-vue-application-first-1.s3-website-eu-west-1.amazonaws.com
+
+
 # shop-vue-vuex-cloudfront
 
 See `develop` branch for development
