@@ -14,7 +14,7 @@ plugins:
 custom:
   client:
     bucketName: my-shop-vue-automatic-deploy
-    distributionFolder: ./build
+    distributionFolder: build
   # Serverless-single-page-app-plugin configuration
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
