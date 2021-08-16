@@ -1,5 +1,7 @@
 Link to S3-website: http://rs-school-vue-application-first-1.s3-website-eu-west-1.amazonaws.com
 
+Link to autodeploy with cloudFront: https://d3pxnv2588b85.cloudfront.net/
+
 
 # shop-vue-vuex-cloudfront
 
