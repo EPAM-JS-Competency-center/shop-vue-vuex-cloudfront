@@ -1,36 +1,9 @@
-# shop-vue-vuex-cloudfront
+Manual configured s3/cloudfront resources:
 
-See `develop` branch for development
+http://my-first-shop-rs-app.s3-website-eu-west-1.amazonaws.com/
 
-## Project setup
-```
-npm install
-```
+https://d67lz548c7in.cloudfront.net/
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+automated deployment:
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+http://d2wcau4jo0rha7.cloudfront.net/
