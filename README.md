@@ -17,20 +17,8 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
-```
-npm run test:unit
-```
+### Links to manual deploy
+* [S3 Bucket](http://my-shop-vue-manual.s3-website-eu-west-1.amazonaws.com/)
+* [CloudFront distribution](https://d2l47bqwytsd6t.cloudfront.net)
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Link to automatic deploy
