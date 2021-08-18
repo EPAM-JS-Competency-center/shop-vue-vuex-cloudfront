@@ -1,13 +1,13 @@
-service: node-in-aws-web
+service: rs-app-alexd
 
 frameworkVersion: '2'
 
 provider:
   name: aws
   region: eu-west-1
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   # setup profile for AWS CLI.
-  # profile: node-aws
+  profile: rs
 
 plugins:
   - serverless-finch
@@ -18,7 +18,7 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: rs-second-app-alexd
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 
