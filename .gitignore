@@ -4,6 +4,7 @@ build
 
 # Dependencies
 node_modules
+jspm_packages
 /.pnp
 .pnp.js
 
