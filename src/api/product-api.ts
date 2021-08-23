@@ -7,23 +7,29 @@ import productList from './productList.json';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/product/available/`)
-		.then(res => res.data)
+		.get(`${API_PATHS.bff}/product`, {
+			headers: {
+				'Content-Type': 'json/application',
+			}, // 'cors' by default
+		})
+		.then(res => {
+			return res.data.products;
+		})
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
-			return productList;
+			return [];
 		});
 };
 
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/product`)
+		.get(`${API_PATHS.bff}/product/available/`)
 		.then(res => res.data)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
-			return productList;
+			// return productList;
 		});
 };
 
