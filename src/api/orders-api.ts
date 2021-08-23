@@ -3,8 +3,6 @@ import axios from 'axios';
 import { API_PATHS } from '@/constants/api-paths';
 import { Order, ORDER_STATUS } from '@/models/order';
 
-import orderList from './orderList.json';
-
 const deleteOrderById = (id: string) => {
 	console.info(`DELETE deleteOrderById: ${id}`);
 
@@ -12,10 +10,7 @@ const deleteOrderById = (id: string) => {
 };
 
 const fetchOrderById = (id: string) => {
-	return orderList[0];
-	/* TODO: uncomment when time comes
 	return axios.get(`${API_PATHS.order}/order/${id}`);
-	*/
 };
 
 const fetchOrders = async (): Promise<Order[]> => {
@@ -24,8 +19,6 @@ const fetchOrders = async (): Promise<Order[]> => {
 		.then(res => res.data)
 		.catch(e => {
 			console.error(e);
-			// << !!! mocks if any error !!!
-			return orderList;
 		});
 };
 
