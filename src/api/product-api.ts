@@ -7,11 +7,7 @@ import productList from './productList.json';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/product`, {
-			headers: {
-				'Content-Type': 'json/application',
-			}, // 'cors' by default
-		})
+		.get(`${API_PATHS.bff}/product`, {})
 		.then(res => {
 			return res.data.products;
 		})
