@@ -9,7 +9,7 @@ const deleteOrderById = (id: string) => {
 	return axios.delete(`${API_PATHS.order}/order/${id}`);
 };
 
-const fetchOrderById = (id: string) => {
+const fetchOrderById = (id: string): Promise<Order> => {
 	return axios.get(`${API_PATHS.order}/order/${id}`);
 };
 

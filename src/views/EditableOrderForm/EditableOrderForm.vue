@@ -102,7 +102,7 @@ export default Vue.extend({
 				ordersApi.fetchOrderById(orderId),
 			])
 				.then(([products, order]) => {
-					const cartItems = order.items.map(cart => ({
+					const cartItems = order.items.map((cart: any) => ({
 						product: products.find((p: Product) => p.id === cart.productId),
 						count: cart.count,
 					}));
