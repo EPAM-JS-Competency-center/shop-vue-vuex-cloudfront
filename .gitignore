@@ -32,3 +32,8 @@ pnpm-debug.log*
 
 # package directories
 jspm_packages
+
+.DS_Store
+admin.env
+.env
+_meta
