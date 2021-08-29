@@ -7,7 +7,9 @@ import productList from './productList.json';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/products`)
+		.get(`${API_PATHS.bff}/products`, {
+			headers: { 'Access-Control-Allow-Origin': '*' },
+		})
 		.then(res => res.data.body.products)
 		.catch(e => {
 			console.error(e);
@@ -18,7 +20,9 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/products`)
+		.get(`${API_PATHS.bff}/products`, {
+			headers: { 'Access-Control-Allow-Origin': '*' },
+		})
 		.then(res => res.data.body.products)
 		.catch(e => {
 			console.error(e);
@@ -31,7 +35,9 @@ const fetchProductById = async (id: string) => {
 	console.info(`GET fetchProductById: ${id}`);
 
 	return axios
-		.get(`${API_PATHS.bff}/products/${id}`)
+		.get(`${API_PATHS.bff}/products/${id}`, {
+			headers: { 'Access-Control-Allow-Origin': '*' },
+		})
 		.then(res => res.data.body.product);
 };
 
