@@ -3,27 +3,29 @@ import axios from 'axios';
 import { API_PATHS } from '@/constants/api-paths';
 import { Product } from '@/models/product';
 
-import productList from './productList.json';
-
 const fetchAvailableProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/product/available/`)
-		.then(res => res.data)
+		.get(`${API_PATHS.products}/products`)
+		.then(res => {
+			return res.data.productsList;
+		})
 		.catch(e => {
 			console.error(e);
-			// << !!! mocks if any error !!!
-			return productList;
+			return 'Product not found';
 		});
 };
 
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
 		.get(`${API_PATHS.bff}/product`)
-		.then(res => res.data)
+		.then(res => {
+			console.log('res', res);
+			return res.data;
+		})
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
-			return productList;
+			return 'Product not found';
 		});
 };
 

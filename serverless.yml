@@ -6,6 +6,7 @@ provider:
   name: aws
   region: eu-west-1
   runtime: nodejs12.x
+  stage: dev
   # setup profile for AWS CLI.
   # profile: node-aws
 
