@@ -75,17 +75,14 @@ export default Vue.extend({
 		formatPrice(price: number) {
 			return priceFormatter.number(price);
 		},
-		fetchProducts() {
+		async fetchProducts() {
 			this.isFetching = true;
 
-			productApi
-				.fetchAvailableProducts()
-				.then(products => {
-					this.products = products;
-				})
-				.finally(() => {
-					this.isFetching = false;
-				});
+			try {
+				this.products = await productApi.fetchAvailableProducts();
+			} finally {
+				this.isFetching = false;
+			}
 		},
 
 		handleProductIncrement(product: Product) {
