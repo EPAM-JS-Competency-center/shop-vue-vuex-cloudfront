@@ -19,7 +19,7 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
 		.get(`${API_PATHS.bff}/products`)
-		.then(res => res.data)
+		.then(res => res.data.products)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
