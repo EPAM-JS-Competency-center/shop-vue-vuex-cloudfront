@@ -62,12 +62,15 @@ const fetchPresignedS3Url = (url: string, fileName: string) => {
 const uploadFileBy = async (url: string, file: File) => {
 	const destUrl = await fetchPresignedS3Url(url, file.name);
 
-	console.info('Uploading to: ', destUrl.data);
+	console.info('Uploading to: ', destUrl.data.signedURL);
 
 	// save
-	const result = await fetch(destUrl.data, {
+	const result = await fetch(destUrl.data.signedURL, {
 		method: 'PUT',
 		body: file,
+		headers: {
+			'Content-Type': 'text/csv',
+		},
 	});
 
 	console.info('Result: ', result);
