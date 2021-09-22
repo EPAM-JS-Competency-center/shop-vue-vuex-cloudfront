@@ -67,6 +67,7 @@ const uploadFileBy = async (url: string, file: File) => {
 	// save
 	const result = await fetch(destUrl.data, {
 		method: 'PUT',
+		headers: { 'Content-Type': 'text/csv' },
 		body: file,
 	});
 
