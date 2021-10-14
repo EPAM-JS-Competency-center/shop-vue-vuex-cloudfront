@@ -48,6 +48,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### To deploy to cloudfront:
 
-```
-npm run client:deploy --aws-profile default
+```npm run client:deploy --aws-profile default
+sls client deploy -v --no-config-change --no-policy-change --no-cors-change
+npm run cloudfront:invalidateCache
+
 ```
