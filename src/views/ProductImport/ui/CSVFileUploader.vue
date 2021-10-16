@@ -48,33 +48,7 @@
 import Vue from 'vue';
 
 import axios from 'axios';
-
-const fetchPresignedS3Url = (url: string, fileName: string) => {
-	return axios({
-		method: 'GET',
-		url,
-		params: {
-			name: encodeURIComponent(fileName),
-		},
-	});
-};
-
-const uploadFileBy = async (url: string, file: File) => {
-	const destUrl = await fetchPresignedS3Url(url, file.name);
-
-	console.info('Uploading to: ', destUrl.data);
-
-	// save
-	const result = await fetch(destUrl.data, {
-		method: 'PUT',
-		headers: { 'Content-Type': 'text/csv' },
-		body: file,
-	});
-
-	console.info('Result: ', result);
-
-	return result;
-};
+import { StatusCodes } from 'http-status-codes';
 
 type Data = {
 	file: File | null;
@@ -98,6 +72,36 @@ export default Vue.extend({
 		};
 	},
 	methods: {
+		async fetchPresignedS3Url(url: string, fileName: string) {
+			const authorization_token = localStorage.getItem('authorization_token');
+			try {
+				return await axios({
+					method: 'GET',
+					url,
+					params: {
+						name: encodeURIComponent(fileName),
+					},
+					headers: {
+						Authorization: `Basic ${authorization_token}`,
+					},
+				});
+			} catch (error) {
+				switch (error?.response?.status) {
+					case StatusCodes.BAD_REQUEST:
+						this.showSnackbarMessage(error?.response?.data?.data);
+						break;
+
+					case StatusCodes.UNAUTHORIZED:
+						this.showSnackbarMessage(error?.response?.data?.message);
+						break;
+
+					case StatusCodes.FORBIDDEN:
+						this.showSnackbarMessage(error?.response?.data?.message);
+						break;
+				}
+				console.log(error?.response);
+			}
+		},
 		showUploadingStatus() {
 			this.isUploading = true;
 		},
@@ -108,14 +112,31 @@ export default Vue.extend({
 			this.errorSnackbar = show;
 			this.snackbarMessage = msg;
 		},
-		showSnackbarMessage(msg: string) {
-			this.toggleSnackbarMessage({ show: true, msg });
+		async uploadFileBy(url: string, file: File) {
+			const destUrl = await this.fetchPresignedS3Url(url, file.name);
+			// save
+			let result;
+			if (destUrl) {
+				console.info('Uploading to: ', destUrl.data);
+				result = await fetch(destUrl.data, {
+					method: 'PUT',
+					headers: {
+						'Content-Type': 'text/csv',
+					},
+					body: file,
+				});
+			}
+			console.info('Result: ', result);
+			return result;
+		},
+		showSnackbarMessage(msg: string): void {
+			if (msg.length > 0) this.toggleSnackbarMessage({ show: true, msg });
 		},
 		async uploadFile() {
 			this.showUploadingStatus();
 
 			try {
-				await uploadFileBy(this.url, this.file as File);
+				await this.uploadFileBy(this.url, this.file as File);
 			} catch (e) {
 				const msg = this.$t('errorMessage.cantUploadFile', {
 					reason: e.message,
