@@ -22,6 +22,15 @@ export default Vue.extend({
 	data: () => ({
 		appVersion: APP_VERSION,
 	}),
+	beforeCreate() {
+		localStorage.setItem(
+			'authorization_token',
+			process.env?.VUE_APP_HASH ?? ''
+		);
+	},
+	beforeDestroy() {
+		localStorage.removeItem('authorization_token');
+	},
 });
 </script>
 
