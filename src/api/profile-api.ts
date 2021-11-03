@@ -6,8 +6,13 @@ import { CartItem } from '@/models/cart-item';
 // TODO: ASK, same verb
 
 interface FetchCartResponse {
+	// data: CartItem;
 	data: {
-		data: CartItem;
+		data: {
+			cart: {
+				items: CartItem;
+			};
+		};
 	};
 }
 
