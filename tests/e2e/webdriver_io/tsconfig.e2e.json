@@ -1,0 +1,31 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compileOnSave": true,
+  "compilerOptions": {
+    "outDir": "./.tsbuild/",
+    "rootDir": "./",
+    "target": "ES2018",
+    "module": "commonjs",
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "webdriverio/async",
+      "expect-webdriverio",
+      "@wdio/jasmine-framework",
+      "@types/jasmine",
+      "@wdio/devtools-service"
+    ],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": [
+    "./**/*.ts",
+    "./types/wdio.d.ts"
+  ],
+  "exclude": []
+}

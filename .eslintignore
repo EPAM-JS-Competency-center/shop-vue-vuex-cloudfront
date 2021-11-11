@@ -1,2 +1,3 @@
 vue.config.js
 tests
+!tests/e2e/webdriver_io/*

@@ -9,7 +9,8 @@
     "build:version": "npm version patch && npm run build",
     "format": "prettier --write --plugin-search-dir=. src/**/*.{ts,vue}",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
+    "test:e2e:cypress": "vue-cli-service test:e2e",
+    "test:e2e:wdio": "wdio ./tests/e2e/webdriver_io/wdio.conf.ts",
     "lint": "vue-cli-service lint",
     "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
     "client:deploy:nc": "npm run client:deploy -- --no-confirm",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "@mdi/font": "^5.9.55",
+    "@wdio/cli": "^7.16.4",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "material-design-icons-iconfont": "^6.1.0",
@@ -37,7 +39,9 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@types/jasmine": "^3.10.2",
     "@types/jest": "^24.0.19",
+    "@types/node": "^16.11.6",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.19.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -51,6 +55,12 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^1.0.3",
+    "@wdio/allure-reporter": "^7.16.3",
+    "@wdio/devtools-service": "^7.16.4",
+    "@wdio/jasmine-framework": "^7.16.4",
+    "@wdio/local-runner": "^7.16.4",
+    "@wdio/spec-reporter": "^7.16.4",
+    "chromedriver": "^95.0.0",
     "cross-env": "^7.0.3",
     "cypress": "^7.1.0",
     "eslint": "^6.7.2",
@@ -60,8 +70,11 @@
     "prettier": "^2.2.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "typescript": "~4.1.5",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.1.6",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.2"
+    "vuetify-loader": "^1.7.2",
+    "wdio-chromedriver-service": "^7.2.2",
+    "wdio-wait-for": "^2.2.1"
   }
 }

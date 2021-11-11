@@ -29,7 +29,7 @@
 								}}
 							</p>
 
-							<p>
+							<p data-test-id="product-count">
 								{{ $t('products.dynamicCount', { count: product.count }) }}
 							</p>
 						</v-card-text>
