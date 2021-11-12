@@ -41,6 +41,12 @@
   ],
   "exclude": [
     "node_modules",
-    "tests"
-  ]
+    "tests",
+    "tests/e2e/webdriver_io"
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }
