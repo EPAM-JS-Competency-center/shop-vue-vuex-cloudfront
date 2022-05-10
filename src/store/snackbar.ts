@@ -3,7 +3,6 @@ import type { Module } from 'vuex';
 export interface SnackbarState {
 	visible: boolean;
 	message: string;
-
 	type: SnackbarType | null;
 }
 
@@ -19,8 +18,8 @@ export const snackbarModuleStore: Module<SnackbarState, any> = {
 		message: '',
 	},
 	actions: {
-		showErrorSnackber({ commit }, { message }: { message: string }) {
-			commit('showSnackbar' as any, {
+		showErrorSnackbar({ commit }, { message }: { message: string }) {
+			commit('showSnackbar', {
 				message,
 				type: SnackbarType.Error,
 			});

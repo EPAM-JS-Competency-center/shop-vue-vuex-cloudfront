@@ -35,7 +35,7 @@ export default Vue.extend({
 				reason: reason,
 			});
 
-			this.$store.dispatch('snackbar/showErrorSnackber', { message });
+			this.$store.dispatch('snackbar/showErrorSnackbar', { message });
 		},
 	},
 });

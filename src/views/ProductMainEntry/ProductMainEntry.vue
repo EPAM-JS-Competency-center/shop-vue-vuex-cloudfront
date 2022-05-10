@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 
 import { VProductLayout } from '@/components/Layout/ProductLayout';
 
@@ -14,8 +14,7 @@ export default Vue.extend({
 	name: 'ProductMainEntry',
 	components: { VProductLayout },
 	computed: {
-		...mapGetters(['cartErrorMessage']),
-		...mapGetters(['cartItems']),
+		...mapState('cart', ['errorMessage', 'cartItems']),
 	},
 	created() {
 		this.fetchInitialCart();
@@ -23,7 +22,7 @@ export default Vue.extend({
 	watch: {
 		cartErrorMessage(message: string) {
 			if (message) {
-				this.$store.dispatch('snackbar/showErrorSnackber', { message });
+				this.$store.dispatch('snackbar/showErrorSnackbar', { message });
 			}
 		},
 	},

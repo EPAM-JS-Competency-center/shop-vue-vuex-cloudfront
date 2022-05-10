@@ -20,9 +20,5 @@ export default new Vuex.Store({
 		cart: cartModuleStore,
 		snackbar: snackbarModuleStore,
 	},
-	getters: {
-		cartErrorMessage: state => state.cart.errorMessage,
-		cartItems: state => state.cart.cartItems,
-	},
 	// plugins: [localStoragePlugin]
 });
