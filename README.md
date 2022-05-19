@@ -2,7 +2,9 @@
 
 ---
 
-## AWS S3 url link: https://rss-school-test-app.s3.eu-west-1.amazonaws.com/index.html 
+### AWS S3 url link: https://rss-school-test-app.s3.eu-west-1.amazonaws.com/index.html 
+
+### Cloudfront app link: https://d12vqoyfd5g4gp.cloudfront.net
 
 ---
 
