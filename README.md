@@ -1,5 +1,11 @@
 # shop-vue-vuex-cloudfront
 
+---
+
+## AWS S3 url link: https://rss-school-test-app.s3.eu-west-1.amazonaws.com/index.html 
+
+---
+
 See `develop` branch for development
 
 ## Project setup
