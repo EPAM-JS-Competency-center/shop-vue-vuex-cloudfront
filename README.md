@@ -34,3 +34,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### S3-website
+```
+http://vladmawsbucket.s3-website-eu-west-1.amazonaws.com
+```
+
+### CloudFront URL
+```
+https://d2e9b8763t9dc1.cloudfront.net
+```

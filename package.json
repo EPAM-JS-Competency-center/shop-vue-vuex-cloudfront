@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "cross-env NODE_ENV=development vue-cli-service serve --port 5555 --host localhost",
     "build": "vue-cli-service build --dest build",
+    "deploy:s3": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
     "build:version": "npm version patch && npm run build",
     "format": "prettier --write --plugin-search-dir=. src/**/*.{ts,vue}",
     "test:unit": "vue-cli-service test:unit",
