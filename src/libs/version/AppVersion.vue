@@ -37,7 +37,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
 	props: {
-		value: Number,
+		value: String,
 		bottomRightCorner: Boolean,
 	},
 	computed: {
