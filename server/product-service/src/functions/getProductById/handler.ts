@@ -8,7 +8,7 @@ import schema from './schema';
 
 const getProductById: ValidatedEventAPIGatewayProxyEvent<
 	typeof schema
-> = async ({ queryStringParameters: { id = '' } }) => {
+> = async ({ pathParameters: { id = '' } }) => {
 	const product = allProducts.find(_product => _product.id === id) || null;
 
 	return formatJSONResponse({
