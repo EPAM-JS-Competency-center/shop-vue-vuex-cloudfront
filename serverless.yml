@@ -1,4 +1,4 @@
-service: node-in-aws-web
+service: rss-school-test-app
 
 frameworkVersion: '2'
 
