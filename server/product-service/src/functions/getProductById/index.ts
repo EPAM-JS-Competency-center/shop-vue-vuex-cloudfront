@@ -7,16 +7,6 @@ export default {
 			http: {
 				method: 'GET',
 				path: '/products/{id}',
-				request: {
-					schemas: {
-						'application/json': {},
-					},
-				},
-				parameters: {
-					paths: {
-						id: true,
-					},
-				},
 			},
 		},
 	],
