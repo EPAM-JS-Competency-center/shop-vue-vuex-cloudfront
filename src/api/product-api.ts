@@ -23,7 +23,9 @@ import { Product } from '@/models/product';
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
 		.get(`${API_PATHS.product}/products`)
-		.then(res => JSON.parse(res.data))
+		.then(({ data }) => {
+			return data.products;
+		})
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!

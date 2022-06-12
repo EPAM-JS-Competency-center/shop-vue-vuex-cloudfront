@@ -42,7 +42,7 @@
   {
     "count": 8,
     "description": "Comfortable house for you cat",
-    "id": "fc73348a80a1",
+    "id": "fc73348a80b1",
     "price": 35,
     "title": "Cat house 'pipe'",
     "image": "https://rss-school-test-app.s3.eu-west-1.amazonaws.com/assets/pipe.jpg"
@@ -50,7 +50,7 @@
   {
     "count": 2,
     "description": "Simple soft cat house",
-    "id": "fc73c48a80a2",
+    "id": "fc73c48a80b2",
     "price": 23,
     "title": "Cat house 'Mobidick'",
     "image": "https://rss-school-test-app.s3.eu-west-1.amazonaws.com/assets/Cat+house+'Mobidick'.jpeg"
@@ -58,7 +58,7 @@
   {
     "count": 3,
     "description": "Scratching post for your cats",
-    "id": "fc73c48a80a1",
+    "id": "fc73c48a80b1",
     "price": 55,
     "title": "Trixi nipa",
     "image": "https://rss-school-test-app.s3.eu-west-1.amazonaws.com/assets/Trixi+nipa.jpeg"
