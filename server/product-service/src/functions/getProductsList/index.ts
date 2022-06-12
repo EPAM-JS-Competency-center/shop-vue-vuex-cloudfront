@@ -4,9 +4,14 @@ export default {
 	handler: `${handlerPath(__dirname)}/handler.main`,
 	events: [
 		{
-			httpApi: {
+			http: {
 				method: 'GET',
 				path: '/products',
+				request: {
+					schemas: {
+						'application/json': {},
+					},
+				},
 			},
 		},
 	],
