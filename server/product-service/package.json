@@ -23,10 +23,13 @@
   "devDependencies": {
     "@serverless/typescript": "^3.18.0",
     "@types/aws-lambda": "^8.10.71",
+    "@types/jest": "^28.1.1",
     "@types/node": "^14.14.25",
+    "jest": "^28.1.1",
     "json-schema-to-ts": "^1.5.0",
     "serverless": "^2.23.0",
     "serverless-webpack": "^5.3.5",
+    "ts-jest": "^28.0.4",
     "ts-loader": "^8.0.15",
     "ts-node": "^10.8.1",
     "tsconfig-paths": "^3.9.0",

@@ -6,14 +6,16 @@ import { middyfy } from '@libs/lambda';
 import allProducts from '../../../../../src/api/productList.json';
 import schema from './schema';
 
-const getProductById: ValidatedEventAPIGatewayProxyEvent<
+export const getProductById: ValidatedEventAPIGatewayProxyEvent<
 	typeof schema
-> = async ({ pathParameters: { id = '' } }) => {
-	if (!id) {
+> = async event => {
+	if (!event?.pathParameters?.id) {
 		return formatErrorResponse('Product ID is not defined', 400);
 	}
 
-	const product = allProducts.find(_product => _product.id === id) || null;
+	const product =
+		allProducts.find(_product => _product.id === event.pathParameters.id) ||
+		null;
 
 	if (!product) {
 		return formatErrorResponse('Not Found', 404);

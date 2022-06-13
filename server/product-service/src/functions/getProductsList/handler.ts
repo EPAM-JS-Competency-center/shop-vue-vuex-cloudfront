@@ -5,7 +5,7 @@ import { formatJSONResponse } from '@libs/apiGateway';
 import { middyfy } from '@libs/lambda';
 import allProducts from '../../../../../src/api/productList.json';
 
-const getProductsList: ValidatedEventAPIGatewayProxyEvent<unknown> = async () => {
+export const getProductsList: ValidatedEventAPIGatewayProxyEvent<unknown> = async () => {
 	return formatJSONResponse({
 		products: allProducts,
 	});
