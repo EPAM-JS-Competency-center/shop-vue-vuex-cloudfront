@@ -24,3 +24,17 @@ export const formatJSONResponse = (response: Record<string, unknown>) => {
 		body: JSON.stringify(response),
 	};
 };
+
+export const formatErrorResponse = (message: string, statusCode?: number) => {
+	return {
+		headers: {
+			'Access-Control-Allow-Headers': 'Content-Type',
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'OPTIONS,GET',
+		},
+		statusCode,
+		body: JSON.stringify({
+			message,
+		}),
+	};
+};
