@@ -1,6 +1,14 @@
 # shop-vue-vuex-cloudfront
 
-See `develop` branch for development
+## Project demo
+### Manual deploy
+- S3: http://hw1-eu.s3-website-eu-west-1.amazonaws.com/
+- Cloudfront: https://d1fonme73pcxl1.cloudfront.net/
+
+### Automated deploy
+- S3: http://hw1-eu-v2.s3-website-us-east-1.amazonaws.com/
+- Cloudfront: https://d2wb1z7z6smcjz.cloudfront.net/
+
 
 ## Project setup
 ```
