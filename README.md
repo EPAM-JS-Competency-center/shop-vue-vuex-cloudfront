@@ -34,3 +34,12 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Resource table
+| Name               | Link                                                                   |
+|--------------------|------------------------------------------------------------------------|
+| Cloudfront Web App | [d32kvoiexx06pv.cloudfront.net](https://d32kvoiexx06pv.cloudfront.net) |
+| S3 Static Website  | [http://vu-shop.s3-website-us-east-1.amazonaws.com/](http://vu-shop.s3-website-us-east-1.amazonaws.com/)                 | 
+
+ 
+
