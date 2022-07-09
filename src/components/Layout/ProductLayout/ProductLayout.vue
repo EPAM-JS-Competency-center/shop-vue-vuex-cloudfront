@@ -16,7 +16,7 @@
 			</p>
 
 			<p class="text-body2 text--secondary">
-				Copyright ©
+				Copyright © EPAM RS School 2022
 				{{ $t('app.title') }}
 				{{ currentDate }}
 			</p>
