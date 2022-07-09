@@ -1,6 +1,15 @@
 # shop-vue-vuex-cloudfront
 
-See `develop` branch for development
+## Task 2
+S3 bucket web-address: http://epam-clouddevcourse-static-hosting.s3-website-eu-west-1.amazonaws.com/
+
+CloudFront URL: https://d1a769akh81yaf.cloudfront.net/
+### Task 2 extras
+`invalidatePaths` configuration option is implemented for the serverless-single-page-app-plugin to allow partial CloudFront distribution invalidation, see _serverless.yml_:
+```
+custom:
+  invalidatePaths: '"/index.html"'
+```
 
 ## Project setup
 ```
