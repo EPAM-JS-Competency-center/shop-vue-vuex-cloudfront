@@ -4,7 +4,7 @@ frameworkVersion: '2'
 
 provider:
   name: aws
-  region: eu-west-1
+  region: us-east-1
   runtime: nodejs12.x
   # setup profile for AWS CLI.
   # profile: node-aws
@@ -18,7 +18,7 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: vu-shop
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 
@@ -36,8 +36,8 @@ resources:
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: index.html
-        # VersioningConfiguration:
-        #   Status: Enabled
+        VersioningConfiguration:
+          Status: Enabled
 
     ## Specifying the policies to make sure all files inside the Bucket are avaialble to CloudFront
     WebAppS3BucketPolicy:
@@ -64,7 +64,7 @@ resources:
         CloudFrontOriginAccessIdentityConfig:
           Comment: Access identity between CloudFront and S3 bucket
 
-    ## Specifying the CloudFront Distribution to server your Web Application
+    # Specifying the CloudFront Distribution to server your Web Application
     WebAppCloudFrontDistribution:
       Type: AWS::CloudFront::Distribution
       Properties:

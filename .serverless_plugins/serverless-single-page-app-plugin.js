@@ -99,8 +99,7 @@ class ServerlessPlugin {
     }
 
     this.serverless.cli.log('Web App Domain: Not Found');
-    const error = new Error('Could not extract Web App Domain');
-    throw error;
+    throw new Error('Could not extract Web App Domain');
   }
 
   async invalidateCache() {
@@ -131,7 +130,7 @@ class ServerlessPlugin {
         '--distribution-id',
         distribution.Id,
         '--paths',
-        '"/*"',
+        '"/index.html"',
       ];
       const { sterr } = this.runAwsCommand(args);
       if (!sterr) {
