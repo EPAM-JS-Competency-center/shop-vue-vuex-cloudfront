@@ -1,6 +1,11 @@
 <template>
 	<div class="grey lighten-5">
 		<v-container>
+			<v-checkbox
+				label="Check me if my dummy data provider doesn't work"
+				@change="handleDataSrcChange"
+			/>
+
 			<v-row>
 				<v-col
 					xs="12"
@@ -75,11 +80,11 @@ export default Vue.extend({
 		formatPrice(price: number) {
 			return priceFormatter.number(price);
 		},
-		fetchProducts() {
+		fetchProducts(params?: { skipDataProvider?: boolean }) {
 			this.isFetching = true;
 
 			productApi
-				.fetchAvailableProducts()
+				.fetchProducts(params)
 				.then(products => {
 					this.products = products;
 				})
@@ -94,6 +99,12 @@ export default Vue.extend({
 
 		handleProductDecrement(productId: string) {
 			this.$store.dispatch('cart/removeProductFromCart', productId);
+		},
+
+		handleDataSrcChange(checked: boolean) {
+			this.fetchProducts({
+				skipDataProvider: checked || undefined,
+			});
 		},
 	},
 });
