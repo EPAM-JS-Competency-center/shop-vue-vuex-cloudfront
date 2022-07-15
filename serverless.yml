@@ -6,8 +6,7 @@ provider:
   name: aws
   region: eu-west-1
   runtime: nodejs12.x
-  # setup profile for AWS CLI.
-  # profile: node-aws
+  profile: default
 
 plugins:
   - serverless-finch
@@ -18,12 +17,13 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: epam-clouddevcourse-static-hosting
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
+  invalidatePaths: '"/index.html"'
 
 resources:
   Resources:

@@ -122,6 +122,11 @@ class ServerlessPlugin {
     );
 
     if (distribution) {
+      const {custom} = this.serverless.service;
+      const invalidatePaths = (custom && custom.invalidatePaths) || '"/*"';
+      this.serverless.cli.log(
+        `The following path(s) will be invalidated: ${invalidatePaths}`,
+      );
       this.serverless.cli.log(
         `Invalidating CloudFront distribution with id: ${distribution.Id}`,
       );
@@ -131,7 +136,7 @@ class ServerlessPlugin {
         '--distribution-id',
         distribution.Id,
         '--paths',
-        '"/*"',
+        invalidatePaths,
       ];
       const { sterr } = this.runAwsCommand(args);
       if (!sterr) {
