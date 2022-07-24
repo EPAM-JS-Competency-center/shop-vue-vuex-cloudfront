@@ -16,16 +16,9 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 		});
 };
 
-type FetchProductsParams = {
-	skipDataProvider?: boolean;
-};
-
-const fetchProducts = async ({
-	skipDataProvider,
-}: FetchProductsParams = {}): Promise<Product[]> => {
-	const params = { skipDataProvider };
+const fetchProducts = async (): Promise<Product[]> => {
 	return axios
-		.get<ProductsResponse>(`${API_PATHS.bff}/products`, { params })
+		.get<ProductsResponse>(`${API_PATHS.bff}/products`)
 		.then(res => res.data.data)
 		.catch(e => {
 			console.error(e);
