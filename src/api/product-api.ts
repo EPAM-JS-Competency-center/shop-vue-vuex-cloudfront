@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { API_PATHS } from '@/constants/api-paths';
-import { Product } from '@/models/product';
+import { Product, ProductsResponse } from '@/models/product';
 
 import productList from './productList.json';
 
@@ -16,10 +16,17 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 		});
 };
 
-const fetchProducts = async (): Promise<Product[]> => {
+type FetchProductsParams = {
+	skipDataProvider?: boolean;
+};
+
+const fetchProducts = async ({
+	skipDataProvider,
+}: FetchProductsParams = {}): Promise<Product[]> => {
+	const params = { skipDataProvider };
 	return axios
-		.get(`${API_PATHS.bff}/product`)
-		.then(res => res.data)
+		.get<ProductsResponse>(`${API_PATHS.bff}/products`, { params })
+		.then(res => res.data.data)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!

@@ -5,3 +5,8 @@ export interface Product {
 	price: number;
 	count: number;
 }
+
+export interface ProductsResponse {
+	count: number;
+	data: Product[];
+}
