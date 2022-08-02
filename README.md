@@ -8,7 +8,7 @@ Student: Jose cerón
 -S3 link: https://myshopstorage.s3.amazonaws.com/index.html
 
 2.2
--CLOUDFRONT: dhas39r8gef8j.cloudfront.net
+-CLOUDFRONT: https://dhas39r8gef8j.cloudfront.net/
 
 ## Project setup
 ```
