@@ -2,6 +2,14 @@
 
 See `develop` branch for development
 
+### Evidence links from task 2
+Student: Jose cerón
+2.1
+-S3 link: https://myshopstorage.s3.amazonaws.com/index.html
+
+2.2
+-CLOUDFRONT: https://dhas39r8gef8j.cloudfront.net/
+
 ## Project setup
 ```
 npm install
