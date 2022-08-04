@@ -60,6 +60,7 @@
     "prettier": "^2.2.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "serverless-single-page-app-plugin": "github:jonathanconway/serverless-single-page-app-plugin",
     "typescript": "~4.1.5",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.2"
