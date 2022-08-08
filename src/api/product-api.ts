@@ -2,13 +2,13 @@ import axios from 'axios';
 
 import { API_PATHS } from '@/constants/api-paths';
 import { Product } from '@/models/product';
-
 import productList from './productList.json';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
+	//	.get(`${API_PATHS.bff}/product/available/`)
 	return axios
-		.get(`${API_PATHS.bff}/product/available/`)
-		.then(res => res.data)
+		.get(`${API_PATHS.bff}/product/available`)
+		.then(res => res.data.books)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
@@ -19,7 +19,7 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
 		.get(`${API_PATHS.bff}/product`)
-		.then(res => res.data)
+		.then(res => res.data.books)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
@@ -41,8 +41,12 @@ const deleteProductById = (id: string) => {
 
 const saveProduct = (productToSave: Product) => {
 	console.info(`PUT saveProduct: ${JSON.stringify(productToSave)}`);
-
 	return axios.put(`${API_PATHS.bff}/product`, productToSave);
+};
+
+const createProduct = (productToCreate: Product) => {
+	console.info(`POST saveProduct: ${JSON.stringify(productToCreate)}`);
+	return axios.post(`${API_PATHS.bff}/product`, productToCreate);
 };
 
 export const productApi = {
@@ -51,4 +55,5 @@ export const productApi = {
 	fetchProducts,
 	fetchProductById,
 	saveProduct,
+	createProduct,
 };
