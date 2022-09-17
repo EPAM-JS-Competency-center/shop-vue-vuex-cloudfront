@@ -4,8 +4,8 @@ frameworkVersion: '2'
 
 provider:
   name: aws
-  region: eu-west-1
   runtime: nodejs12.x
+
   # setup profile for AWS CLI.
   # profile: node-aws
 
@@ -18,7 +18,7 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: car-parts-automatic
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 

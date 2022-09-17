@@ -1,0 +1,11 @@
+{
+  "name": "serverless-single-page-app-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverless-single-page-app-plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

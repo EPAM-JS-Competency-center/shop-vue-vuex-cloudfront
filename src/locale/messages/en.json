@@ -1,6 +1,6 @@
 {
     "app": {
-        "title": "My store!",
+        "title": "Car Parts Store",
         "loading": "Loading... Please wait"
     },
     "common": {
@@ -54,12 +54,12 @@
         "empty": "The cart is empty. Didn't you like anything in our shop?"
     },
     "products": {
-        "manage": "Manage products",
-        "importCsvFile": "Import Product CSV",
-        "edit": "Edit a product",
-        "save": "Save product",
-        "update": "Update product",
-        "create": "Create new product",
+        "manage": "Manage car parts",
+        "importCsvFile": "Import car part CSV",
+        "edit": "Edit a car part",
+        "save": "Save car part",
+        "update": "Update car part",
+        "create": "Create new car part",
         "title": "Title",
         "description": "Description",
         "count": "Count",
