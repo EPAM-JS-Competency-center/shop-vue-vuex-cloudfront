@@ -7,7 +7,7 @@ See `develop` branch for development
 
 [Cloudfront Link for manually created bucket](https://duq59gs8kboag.cloudfront.net/).
 
-[Cloudfront link for automatically created bucket with serverless-single-page-app](https://d31qwwzbuo55t9.cloudfront.net).
+[Cloudfront link for automatically created bucket with serverless-single-page-app-plugin and automatic deployment with serverless-finch](https://d31qwwzbuo55t9.cloudfront.net).
 
 ## Project deploying to AWS
 For deployment install and configure AWS CLI and Serverless framework with your
