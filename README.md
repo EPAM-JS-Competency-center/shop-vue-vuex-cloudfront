@@ -34,3 +34,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Links to:
+ - CloudFront: https://d2va0lki0x5q8v.cloudfront.net
+ - S3-website: http://digital-camera-dcam-shop.s3-website-eu-west-1.amazonaws.com
