@@ -1,7 +1,7 @@
 <template>
 	<div v-if="productCount < 1">
 		<v-btn
-			color="pink"
+			color="blueGray"
 			icon
 			large
 			data-test-id="add-product-button"

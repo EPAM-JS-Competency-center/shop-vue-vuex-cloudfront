@@ -2,7 +2,7 @@
 	<div class="grey lighten-5">
 		<v-progress-linear
 			indeterminate
-			color="indigo"
+			color="blueGrey"
 			:class="[isFetching ? '' : 'op-0']"
 		/>
 		<v-container class="white">
