@@ -1,5 +1,8 @@
 # shop-vue-vuex-cloudfront
 
+Check my pull request 
+https://github.com/tikenov/shop-vue-vuex-cloudfront
+
 Manual ->
 
 cloudfront:
