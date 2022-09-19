@@ -1,6 +1,6 @@
 {
     "app": {
-        "title": "My store!",
+        "title": "Fruit Store",
         "loading": "Loading... Please wait"
     },
     "common": {
@@ -49,7 +49,7 @@
     },
     "cart": {
         "review": "Review your cart",
-        "shippingAddress": "Shipping address",
+        "shiMy storeppingAddress": "Shipping address",
         "summary": "Cart Summary",
         "empty": "The cart is empty. Didn't you like anything in our shop?"
     },

@@ -2,7 +2,7 @@
 	<v-container class="grey lighten-5 py-2" fluid>
 		<v-progress-linear
 			indeterminate
-			color="indigo"
+			color="blueGrey"
 			:class="[isFetching ? '' : 'opacity-0']"
 		>
 		</v-progress-linear>

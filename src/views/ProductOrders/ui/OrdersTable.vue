@@ -9,7 +9,7 @@
 		data-testId="orders-table"
 	>
 		<template v-slot:loading>
-			<v-progress-linear indeterminate color="indigo"></v-progress-linear>
+			<v-progress-linear indeterminate color="blueGrey"></v-progress-linear>
 
 			<p class="pa-2 v-data-table__empty-wrapper">
 				{{ $t('app.loading') }}

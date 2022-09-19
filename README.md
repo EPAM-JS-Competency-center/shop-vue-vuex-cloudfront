@@ -1,10 +1,5 @@
 # shop-vue-vuex-cloudfront
 
-cloudfront:
-https://d1f8qct2p5uzyn.cloudfront.net/
-s3:
-https://my-rs-shop.s3.eu-west-1.amazonaws.com/index.html
-
 See `develop` branch for development
 
 ## Project setup
