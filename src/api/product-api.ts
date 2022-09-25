@@ -18,8 +18,8 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 
 const fetchProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/product`)
-		.then(res => res.data)
+		.get(`${API_PATHS.product}/products`)
+		.then(res => res.data.products)
 		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
@@ -30,7 +30,9 @@ const fetchProducts = async (): Promise<Product[]> => {
 const fetchProductById = async (id: string) => {
 	console.info(`GET fetchProductById: ${id}`);
 
-	return axios.get(`${API_PATHS.bff}/product/${id}`).then(res => res.data);
+	return axios
+		.get(`${API_PATHS.product}/products/${id}`)
+		.then(res => res.data.product);
 };
 
 const deleteProductById = (id: string) => {
