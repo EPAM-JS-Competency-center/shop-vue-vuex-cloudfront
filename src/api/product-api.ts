@@ -43,8 +43,9 @@ const deleteProductById = (id: string) => {
 
 const saveProduct = (productToSave: Product) => {
 	console.info(`PUT saveProduct: ${JSON.stringify(productToSave)}`);
-
-	return axios.put(`${API_PATHS.bff}/product`, productToSave);
+	productToSave.price = parseFloat(`${productToSave.price}`);
+	productToSave.count = parseInt(`${productToSave.count}`);
+	return axios.post(`${API_PATHS.product}/products`, productToSave);
 };
 
 export const productApi = {
