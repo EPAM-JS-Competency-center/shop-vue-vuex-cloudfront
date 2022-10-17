@@ -7,7 +7,7 @@ import productList from './productList.json';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
 	return axios
-		.get(`${API_PATHS.bff}/products/available/`)
+		.get(`${API_PATHS.bff}/products`)
 		.then(res => res.data)
 		.catch(e => {
 			console.error(e);
