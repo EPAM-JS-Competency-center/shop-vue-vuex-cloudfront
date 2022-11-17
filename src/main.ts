@@ -7,9 +7,19 @@ import { connectRouter } from './plugins/vue-router';
 import { connecti18n } from './plugins/vue-i18n';
 
 import store from './store/store';
+import axios from 'axios';
 
 const createApp = () => {
 	Vue.config.productionTip = false;
+
+	axios.interceptors.response.use(
+		response => response,
+		error => {
+			if ([401, 403].includes(error?.response?.status)) {
+				alert('Please authorize in the application!');
+			}
+		}
+	);
 
 	return new Vue({
 		el: '#app',
