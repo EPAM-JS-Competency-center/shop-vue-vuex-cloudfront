@@ -6,11 +6,11 @@ describe('view: ProductImport', () => {
     });
 
     it('Layout: should be present', () => {
-        cy.shouldContainBaseLayout({ title: "My store!" })
+        cy.shouldContainBaseLayout({ title: "My necklaces store!" })
     });
 
     it('Footer: should contain copyright', () => {
-        cy.shouldContainFooter({ text: 'Copyright © My store!' })
+        cy.shouldContainFooter({ text: 'Copyright © My necklaces store!' })
     });
 
     it('Footer: should tell thank you', () => {

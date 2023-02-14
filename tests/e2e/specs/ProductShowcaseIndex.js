@@ -2,17 +2,18 @@ const products = require('../fixtures/product-api.json');
 
 describe('view: ProductShowcaseIndex', () => {
     beforeEach(() => {
+        cy.intercept('GET', '/dev/profile/cart', []);
         cy.visit('/');
     });
 
     it('Layout: should be present', () => {
         cy.intercept('/dev/product/available/', []);
 
-        cy.shouldContainBaseLayout({ title: "My store!" })
+        cy.shouldContainBaseLayout({ title: "My necklaces store!" })
     });
 
     it('Footer: should contain copyright', () => {
-        cy.shouldContainFooter({ text: 'Copyright © My store!' })
+        cy.shouldContainFooter({ text: 'Copyright © My necklaces store!' })
     });
 
     it('Footer: should tell thank you', () => {
@@ -183,7 +184,7 @@ describe('view: ProductShowcaseIndex', () => {
             .should('contain', '3');
     });
 
-    it('Heaer: should provide cart feedback (badges)', () => {
+    it('Header: should provide cart feedback (badges)', () => {
         cy.intercept('PUT', '/dev/profile/cart/', []);
 
         cy.intercept('/dev/product/available/', products)
