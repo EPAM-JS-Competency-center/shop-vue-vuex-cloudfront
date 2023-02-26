@@ -6,25 +6,27 @@ import { Product } from '@/models/product';
 import productList from './productList.json';
 
 const fetchAvailableProducts = async (): Promise<Product[]> => {
-	return axios
-		.get(`${API_PATHS.bff}/product/available/`)
-		.then(res => res.data)
-		.catch(e => {
-			console.error(e);
-			// << !!! mocks if any error !!!
-			return productList;
-		});
+	return (
+		axios
+			//.get(`${API_PATHS.bff}/product/available/`)
+			.get(`${API_PATHS.product}`)
+			.then(res => res.data)
+			.catch(e => {
+				console.error(e);
+				// << !!! mocks if any error !!!
+				return productList;
+			})
+	);
 };
 
 const fetchProducts = async (): Promise<Product[]> => {
-	return axios
-		.get(`${API_PATHS.bff}/product`)
-		.then(res => res.data)
-		.catch(e => {
+	return axios.get(API_PATHS.product).then(res => res.data);
+	// no need to handle errors
+	/*		.catch(e => {
 			console.error(e);
 			// << !!! mocks if any error !!!
-			return productList;
-		});
+			return [];
+		});*/
 };
 
 const fetchProductById = async (id: string) => {
