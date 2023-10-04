@@ -1,5 +1,13 @@
 # shop-vue-vuex-cloudfront
 
+## S3 Bucket
+
+You cannot reach the bucket by [this link](https://shop-vue-vuex-cloudfront.s3.eu-west-1.amazonaws.com).
+
+## CloudFront
+
+There is a [link](https://d1zh7foc0icdia.cloudfront.net/) to the ShopApp
+
 See `develop` branch for development
 
 ## Project setup
