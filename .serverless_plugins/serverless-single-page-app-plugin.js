@@ -9,30 +9,22 @@ class ServerlessPlugin {
     this.commands = {
       syncToS3: {
         usage: 'Deploys the `app` directory to your bucket',
-        lifecycleEvents: [
-          'sync',
-        ],
+        lifecycleEvents: ['sync'],
       },
       domainInfo: {
         usage: 'Fetches and prints out the deployed CloudFront domain names',
-        lifecycleEvents: [
-          'domainInfo',
-        ],
+        lifecycleEvents: ['domainInfo'],
       },
       invalidateCloudFrontCache: {
         usage: 'Invalidates CloudFront cache',
-        lifecycleEvents: [
-          'invalidateCache',
-        ],
+        lifecycleEvents: ['invalidateCache'],
       },
     };
 
     this.hooks = {
       'syncToS3:sync': this.syncDirectory.bind(this),
       'domainInfo:domainInfo': this.domainInfo.bind(this),
-      'invalidateCloudFrontCache:invalidateCache': this.invalidateCache.bind(
-        this,
-      ),
+      'invalidateCloudFrontCache:invalidateCache': this.invalidateCache.bind(this),
     };
   }
 
